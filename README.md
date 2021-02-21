@@ -1,3 +1,5 @@
+[![Netlify Status](https://api.netlify.com/api/v1/badges/622d68f2-64d2-416a-bdb3-8f91880996a1/deploy-status)](https://app.netlify.com/sites/shop-testing-vitesse/deploys)
+
 <p align='center'>
   <img src='https://user-images.githubusercontent.com/11247099/108018558-11e8d480-7053-11eb-99a6-eb18b5da5031.png' alt='Vitesse - Opinionated Vite Starter Template' width='600'/>
 </p>
