@@ -4,7 +4,7 @@
       <div class="relative flex items-center justify-between h-16">
         <div class="flex items-center flex-1 sm:items-stretch sm:justify-start">
           <div class="flex items-center flex-shrink-0">
-            <div class="block m-1 lg:hidden">
+            <div class="block m-1 sm:hidden">
               <button
                 class="inline-flex items-start justify-center p-2 text-gray-400 rounded-md hover:text-white hover:bg-blue-600 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-white"
                 aria-expanded="false"
