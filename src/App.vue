@@ -15,7 +15,7 @@ useHead({
 <template>
   <main class="">
     <NavBar />
-    <div class="w-full h-full bg-gray-100">
+    <div class="w-full h-full">
       <router-view />
     </div>
   </main>
