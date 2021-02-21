@@ -2,7 +2,8 @@
   "private": true,
   "scripts": {
     "dev": "vite --port 3333 --open",
-    "build": "cross-env NODE_ENV=production vite-ssg build"
+    "build": "cross-env NODE_ENV=production vite-ssg build",
+    "build:simple": "vite build"
   },
   "dependencies": {
     "@vueuse/core": "^4.1.1",
