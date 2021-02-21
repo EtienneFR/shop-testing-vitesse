@@ -13,5 +13,10 @@ useHead({
 </script>
 
 <template>
-  <router-view />
+  <main class="">
+    <NavBar />
+    <div class="w-full h-full bg-gray-100">
+      <router-view />
+    </div>
+  </main>
 </template>
