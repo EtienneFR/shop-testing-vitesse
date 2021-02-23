@@ -1,6 +1,6 @@
 <template>
   <div class="flex justify-center">
-    <div class="w-3/5 p-10">
+    <div class="w-full sm:w-3/5 p-10">
       <SearchBar />
     </div>
   </div>
