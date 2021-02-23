@@ -1,5 +1,7 @@
 <template>
-  <a :href="href" :class="classe" :role="role"><slot /></a>
+  <router-link :to="href" :class="classe" :role="role">
+    <slot />
+  </router-link>
 </template>
 
 <script lang="ts">
