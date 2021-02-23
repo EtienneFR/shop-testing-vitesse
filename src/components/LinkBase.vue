@@ -1,5 +1,5 @@
 <template>
-  <router-link :to="href" :class="classe" :role="role">
+  <router-link :to="href" :role="role">
     <slot />
   </router-link>
 </template>
@@ -9,10 +9,6 @@ import { defineComponent } from 'vue'
 
 export default defineComponent({
   props: {
-    classe: {
-      type: String,
-      default: 'classes',
-    },
     href: {
       type: String,
       default: '#',
