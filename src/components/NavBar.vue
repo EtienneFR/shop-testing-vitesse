@@ -207,8 +207,8 @@ export default defineComponent({
         },
         {
           id: 2,
-          to: '#',
-          text: 'Orders',
+          to: 'products',
+          text: 'Products',
         },
         {
           id: 3,
