@@ -27,7 +27,7 @@
               </button>
             </div>
           </div>
-          <LinkBase class="hidden sm:block flex p-1 text-gray-400 rounded-full hover:text-white" href="/">
+          <LinkBase class="hidden sm:block flex p-1 pr-3 text-gray-400 rounded-full hover:text-white" href="/">
             <IconBase view-box="0 0 24 24" stroke="currentColor">
               <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6" />
             </IconBase>
@@ -181,7 +181,13 @@
         </div>
       </div>
     </div>
-    <div v-if="isOpenMenu" class="">
+    <div v-if="isOpenMenu">
+      <LinkBase
+        href="/"
+        class="block py-2 text-base font-medium text-center text-gray-100 rounded-md hover:bg-blue-600 hover:text-white"
+      >
+        Home
+      </LinkBase>
       <div v-for="link in links" :key="link.id" class="pt-1 pb-2 space-y-1">
         <LinkBase
           :href="link.to"
