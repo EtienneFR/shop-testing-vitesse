@@ -22,6 +22,7 @@ useHead({
         leave-active-class="transition duration-700 ease-in transform"
         leave-from-class="scale-100 opacity-100"
         leave-to-class="scale-95 opacity-0"
+        mode="out-in"
       >
         <router-view />
       </transition>
