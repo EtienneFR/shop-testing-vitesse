@@ -13,10 +13,22 @@ useHead({
 </script>
 
 <template>
-  <main class="">
     <NavBar />
     <div class="w-full h-full">
-      <router-view />
+      <transition name="fade" mode="out-in">
+        <router-view />
+      </transition>
     </div>
-  </main>
 </template>
+
+<style>
+  .fade-enter-active,
+  .fade-leave-active {
+    transition: opacity 0.3s, transform 0.3s;
+  }
+
+  .fade-enter,
+  .fade-leave-to {
+    opacity: 0;
+  }
+</style>
