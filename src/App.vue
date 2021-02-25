@@ -15,20 +15,15 @@ useHead({
 <template>
     <NavBar />
     <div class="w-full h-full">
-      <transition name="fade" mode="out-in">
+      <transition 
+        enter-active-class="transition ease-out transform duration-900"
+        enter-from-class="scale-95 opacity-0"
+        enter-to-class="scale-100 opacity-100"
+        leave-active-class="transition duration-700 ease-in transform"
+        leave-from-class="scale-100 opacity-100"
+        leave-to-class="scale-95 opacity-0"
+      >
         <router-view />
       </transition>
     </div>
 </template>
-
-<style>
-  .fade-enter-active,
-  .fade-leave-active {
-    transition: opacity 0.3s, transform 0.3s;
-  }
-
-  .fade-enter,
-  .fade-leave-to {
-    opacity: 0;
-  }
-</style>
