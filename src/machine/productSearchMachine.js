@@ -1,6 +1,10 @@
 import { Machine, assign } from 'xstate'
 
-const url = 'https://api.unsplash.com/search/photos?query=home'
+const invokeFetchData = (query) => {
+  const url = `https://api.unsplash.com/search/photos?query=${query}`
+
+  return fetch(url).then(response => response.json())
+}
 
 export const createProductSearchMachine = () =>
   Machine(
@@ -36,6 +40,10 @@ export const createProductSearchMachine = () =>
             RETRY: 'loading',
           },
         },
+      },
+      services: {
+        getDataProduct: (context, event) =>
+          invokeFetchData(context.query),
       },
     },
   )
