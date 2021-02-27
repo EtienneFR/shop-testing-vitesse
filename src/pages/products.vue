@@ -6,9 +6,7 @@
       </div>
     </div>
     <div class="flex justify-center pt-8">
-      <p class="text-2xl text-blue-600">
-        Products that made for you!
-      </p>
+      <Card />
     </div>
   </div>
 </template>

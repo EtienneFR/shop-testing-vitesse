@@ -6,6 +6,7 @@ dependencies:
   vue: 3.0.6
   vue-i18n: 9.0.0_vue@3.0.6
   vue-router: 4.0.4_vue@3.0.6
+  xstate: 4.16.2
 devDependencies:
   '@antfu/eslint-config': 0.4.3_eslint@7.20.0+typescript@4.2.2
   '@iconify/json': 1.1.309
@@ -5515,6 +5516,10 @@ packages:
     dev: true
     resolution:
       integrity: sha512-JZnDKK8B0RCDw84FNdDAIpZK+JuJw+s7Lz8nksI7SIuU3UXJJslUthsi+uWBUYOwPFwW7W7PRLRfUKpxjtjFCw==
+  /xstate/4.16.2:
+    dev: false
+    resolution:
+      integrity: sha512-EY39NNZnwM4tRYNmQAi1c2qHuZ1lJmuDpEo1jxiRcfS+1jPtKRAjGRLNx3fYKcK0ohW6mL41Wze3mdCF0SqavA==
   /y18n/5.0.5:
     dev: true
     engines:
@@ -5609,3 +5614,4 @@ specifiers:
   vue: ^3.0.6
   vue-i18n: ^9.0.0
   vue-router: ^4.0.4
+  xstate: ^4.16.2
