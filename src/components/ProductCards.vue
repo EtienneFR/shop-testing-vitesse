@@ -1,13 +1,13 @@
 <template>
-  <section v-if="errored">
-    <p>Nous sommes désolés, nous ne sommes pas en mesure de récupérer ces informations pour le moment. Veuillez réessayer ultérieurement.</p>
+  <section v-if="errored" class="flex items-center justify-center p-4">
+    <p>We are sorry, we are unable to retrieve this information at this time. Please retry later.</p>
   </section>
 
   <section v-else>
     <div class="flex items-center justify-center md:px-20">
       <div class="flex flex-wrap">
         <div v-if="loading">
-          Chargement...
+          Waiting...
         </div>
         <div v-for="photo in info.results" v-else :key="photo.id" class="w-full px-1 my-1 md:w-1/2 lg:my-4 lg:px-4 lg:w-1/3">
           <div class="overflow-hidden rounded-lg shadow-lg">
@@ -51,6 +51,7 @@ export default defineComponent({
     }
   },
   mounted() {
+    // WIP - Authorization token
     // const AuthStr = 'Client-ID '.concat(TOKEN)
 
     axios
