@@ -4,28 +4,25 @@
   </section>
 
   <section v-else>
-    <div class="w-full px-1 my-1 md:w-1/2 lg:my-4 lg:px-4 lg:w-1/3">
-      <div class="flex flex-wrap mx-6 lg:-mx-4">
+    <div class="flex items-center justify-center md:px-20">
+      <div class="flex flex-wrap">
         <div v-if="loading">
           Chargement...
         </div>
-        <article
-          v-for="photo in info.results"
-          v-else
-          :key="photo.id"
-          class="overflow-hidden rounded-lg shadow-lg"
-        >
-          <img
-            alt="Placeholder"
-            class="block"
-            :src="photo.urls.raw"
-          >
-          <header class="flex items-center justify-between p-2 leading-tight md:p-4">
-            <h1 class="text-lg">
-              {{ photo.alt_description }}
-            </h1>
-          </header>
-        </article>
+        <div v-for="photo in info.results" v-else :key="photo.id" class="w-full px-1 my-1 md:w-1/2 lg:my-4 lg:px-4 lg:w-1/3">
+          <div class="overflow-hidden rounded-lg shadow-lg">
+            <img
+              alt="Placeholder"
+              class="block"
+              :src="photo.urls.raw"
+            >
+            <header class="flex items-center justify-between p-2 leading-tight md:p-4">
+              <h1 class="text-lg">
+                {{ photo.alt_description }}
+              </h1>
+            </header>
+          </div>
+        </div>
       </div>
     </div>
   </section>
@@ -54,10 +51,11 @@ export default defineComponent({
     }
   },
   mounted() {
+    // const AuthStr = 'Client-ID '.concat(TOKEN)
+
     axios
-      .get('https://api.unsplash.com/search/photos?query=road', { headers: { Authorization: 'Client-ID test' } })
+      .get('https://api.unsplash.com/search/photos?orientation=landscape&query=products', { headers: { Authorization: 'test' } })
       .then((response) => {
-        console.log(response.data.results)
         this.info = response.data
       })
       .catch((error) => {
