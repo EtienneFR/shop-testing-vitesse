@@ -1,12 +1,12 @@
 dependencies:
   '@vueuse/core': 4.3.1_vue@3.0.6
   '@vueuse/head': 0.2.3_vue@3.0.6
+  axios: 0.21.1
   nprogress: 0.2.0
   prism-theme-vars: 0.1.4
   vue: 3.0.6
   vue-i18n: 9.0.0_vue@3.0.6
   vue-router: 4.0.4_vue@3.0.6
-  xstate: 4.16.2
 devDependencies:
   '@antfu/eslint-config': 0.4.3_eslint@7.21.0+typescript@4.2.2
   '@iconify/json': 1.1.310
@@ -1754,6 +1754,12 @@ packages:
     dev: true
     resolution:
       integrity: sha512-xh1Rl34h6Fi1DC2WWKfxUTVqRsNnr6LsKz2+hfwDxQJWmrx8+c7ylaqBMcHfl1U1r2dsifOvKX3LQuLNZ+XSvA==
+  /axios/0.21.1:
+    dependencies:
+      follow-redirects: 1.13.3
+    dev: false
+    resolution:
+      integrity: sha512-dKQiRHxGD9PPRIUNIWvZhPTPpl1rf/OxTYKsqKUDjBwYylTvV7SjSHJb9ratfyzM6wCdLCOYLzs73qpg5c4iGA==
   /babel-plugin-dynamic-import-node/2.3.3:
     dependencies:
       object.assign: 4.1.2
@@ -1950,7 +1956,7 @@ packages:
       integrity: sha512-g5zbiixBRk/wyKakSwCKd7vQXDjFnAMGHoEyBogG/bw9kTD9GvdAvaoRR1ALcEzt3pVKxZR0pViekPMIS0QyGg==
   /cliui/7.0.4:
     dependencies:
-      string-width: 4.2.1
+      string-width: 4.2.2
       strip-ansi: 6.0.0
       wrap-ansi: 7.0.0
     dev: true
@@ -2841,6 +2847,17 @@ packages:
     dev: true
     resolution:
       integrity: sha512-zAoAQiudy+r5SvnSw3KJy5os/oRJYHzrzja/tBDqrZtNhUw8bt6y8OBzMWcjWr+8liV8Eb6yOhw8WZ7VFZ5ZzA==
+  /follow-redirects/1.13.3:
+    dev: false
+    engines:
+      node: '>=4.0'
+    peerDependencies:
+      debug: '*'
+    peerDependenciesMeta:
+      debug:
+        optional: true
+    resolution:
+      integrity: sha512-DUgl6+HDzB0iEptNQEXLx/KhTmDb8tZUHSeLqpnjpknR70H0nC2t9N73BK6fN4hOvJ84pKlIQVQ4k5FFlBedKA==
   /foreach/2.0.5:
     dev: true
     resolution:
@@ -4673,7 +4690,7 @@ packages:
     dev: true
     resolution:
       integrity: sha1-6Kr8CsGFW0Zmkp7X3RJ1311sgRs=
-  /string-width/4.2.1:
+  /string-width/4.2.2:
     dependencies:
       emoji-regex: 8.0.0
       is-fullwidth-code-point: 3.0.0
@@ -4682,7 +4699,7 @@ packages:
     engines:
       node: '>=8'
     resolution:
-      integrity: sha512-LL0OLyN6AnfV9xqGQpDBwedT2Rt63737LxvsRxbcwpa2aIeynBApG2Sm//F3TaLHIR1aJBN52DWklc06b94o5Q==
+      integrity: sha512-XBJbT3N4JhVumXE0eoLU9DCjcaF92KLNqTmFCnG1pf8duUxFGwtP6AD6nkjw9a3IdiRtL3E2w3JDiE/xi3vOeA==
   /string.prototype.matchall/4.0.4:
     dependencies:
       call-bind: 1.0.2
@@ -4776,7 +4793,7 @@ packages:
       ajv: 7.1.1
       lodash: 4.17.21
       slice-ansi: 4.0.0
-      string-width: 4.2.1
+      string-width: 4.2.2
     dev: true
     engines:
       node: '>=10.0.0'
@@ -5482,7 +5499,7 @@ packages:
   /wrap-ansi/7.0.0:
     dependencies:
       ansi-styles: 4.3.0
-      string-width: 4.2.1
+      string-width: 4.2.2
       strip-ansi: 6.0.0
     dev: true
     engines:
@@ -5515,10 +5532,6 @@ packages:
     dev: true
     resolution:
       integrity: sha512-JZnDKK8B0RCDw84FNdDAIpZK+JuJw+s7Lz8nksI7SIuU3UXJJslUthsi+uWBUYOwPFwW7W7PRLRfUKpxjtjFCw==
-  /xstate/4.16.2:
-    dev: false
-    resolution:
-      integrity: sha512-EY39NNZnwM4tRYNmQAi1c2qHuZ1lJmuDpEo1jxiRcfS+1jPtKRAjGRLNx3fYKcK0ohW6mL41Wze3mdCF0SqavA==
   /y18n/5.0.5:
     dev: true
     engines:
@@ -5575,7 +5588,7 @@ packages:
       escalade: 3.1.1
       get-caller-file: 2.0.5
       require-directory: 2.1.1
-      string-width: 4.2.1
+      string-width: 4.2.2
       y18n: 5.0.5
       yargs-parser: 20.2.6
     dev: true
@@ -5594,6 +5607,7 @@ specifiers:
   '@vue/server-renderer': ^3.0.6
   '@vueuse/core': ^4.3.1
   '@vueuse/head': ^0.2.3
+  axios: ^0.21.1
   cross-env: ^7.0.3
   eslint: ^7.21.0
   markdown-it-prism: ^2.1.4
@@ -5613,4 +5627,3 @@ specifiers:
   vue: ^3.0.6
   vue-i18n: ^9.0.0
   vue-router: ^4.0.4
-  xstate: ^4.16.2

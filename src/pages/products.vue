@@ -5,8 +5,7 @@
         <SearchBar />
       </div>
     </div>
-    <div class="flex flex-wrap justify-center mx-6 lg:-mx-4">
-      <Card source="https://picsum.photos/600/400/?random" description="A product!" />
-    </div>
+
+    <ProductCards />
   </div>
 </template>
