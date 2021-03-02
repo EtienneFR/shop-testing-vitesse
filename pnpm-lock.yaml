@@ -2,6 +2,7 @@ dependencies:
   '@vueuse/core': 4.3.1_vue@3.0.7
   '@vueuse/head': 0.2.3_vue@3.0.7
   axios: 0.21.1
+  node-fetch: 2.6.1
   nprogress: 0.2.0
   prism-theme-vars: 0.1.4
   vue: 3.0.7
@@ -3775,6 +3776,12 @@ packages:
     dev: true
     resolution:
       integrity: sha512-rmTZ9kz+f3rCvK2TD1Ue/oZlns7OGoIWP4fc3llxxRXlOkHKoWPPWJOfFYpITabSow43QJbRIoHQXtt10VldyQ==
+  /node-fetch/2.6.1:
+    dev: false
+    engines:
+      node: 4.x || >=6.0.0
+    resolution:
+      integrity: sha512-V4aYg89jEoVRxRb2fJdAg8FHvI7cEyYdVAh94HH0UIK8oJxUfkjlDQN9RbMx+bEjP7+ggMiFRprSti032Oipxw==
   /node-modules-regexp/1.0.0:
     dev: true
     engines:
@@ -5611,6 +5618,7 @@ specifiers:
   cross-env: ^7.0.3
   eslint: ^7.21.0
   markdown-it-prism: ^2.1.4
+  node-fetch: ^2.6.1
   nprogress: ^0.2.0
   pnpm: ^5.18.1
   prism-theme-vars: ^0.1.4
