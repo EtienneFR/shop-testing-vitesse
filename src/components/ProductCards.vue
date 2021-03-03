@@ -6,19 +6,16 @@
   <section v-else>
     <div class="flex items-center justify-center md:px-20">
       <div class="flex flex-wrap">
-        <div v-if="loading">
-          Waiting...
-        </div>
-        <div v-for="photo in info.results" v-else :key="photo.id" class="w-full px-1 my-1 md:w-1/2 lg:my-4 lg:px-4 lg:w-1/3">
+        <div v-for="product in items" :key="product.description" class="w-full px-1 my-1 md:w-1/2 lg:my-4 lg:px-4 lg:w-1/3">
           <div class="overflow-hidden rounded-lg shadow-lg">
             <img
               alt="Placeholder"
               class="block"
-              :src="photo.urls.raw"
+              :src="product.url"
             >
             <header class="flex items-center justify-between p-2 leading-tight md:p-4">
               <h1 class="text-lg">
-                {{ photo.alt_description }}
+                {{ product.description }}
               </h1>
             </header>
           </div>
@@ -30,7 +27,7 @@
 
 <script lang="ts">
 import { defineComponent } from 'vue'
-import axios from 'axios'
+// import { searchProducts } from './netlify/functions/search-api.js'
 
 export default defineComponent({
   props: {
@@ -45,25 +42,9 @@ export default defineComponent({
   },
   data() {
     return {
-      info: null,
-      loading: true,
       errored: false,
+      // items: searchProducts.products,
     }
-  },
-  mounted() {
-    // WIP - Authorization token
-    // const AuthStr = 'Client-ID '.concat(TOKEN)
-
-    axios
-      .get('https://api.unsplash.com/search/photos?orientation=landscape&query=products', { headers: { Authorization: 'test' } })
-      .then((response) => {
-        this.info = response.data
-      })
-      .catch((error) => {
-        console.log(error)
-        this.errored = true
-      })
-      .finally(() => this.loading = false)
   },
 })
 </script>
