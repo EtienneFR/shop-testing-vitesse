@@ -1,6 +1,6 @@
 <template>
   <section v-if="errored" class="flex items-center justify-center p-4">
-    <p>We are sorry, we are unable to retrieve this information at this time. Please retry later.</p>
+    <p>We are sorry. We are unable to retrieve this information at this time. Please retry later.</p>
   </section>
 
   <section v-else>
