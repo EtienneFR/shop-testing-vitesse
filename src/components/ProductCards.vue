@@ -6,7 +6,10 @@
   <section v-else>
     <div class="flex items-center justify-center md:px-20">
       <div class="flex flex-wrap">
-        <div v-for="product in items" :key="product.description" class="w-full px-1 my-1 md:w-1/2 lg:my-4 lg:px-4 lg:w-1/3">
+        <div v-if="loading">
+          Waiting...
+        </div>
+        <div v-for="product in info" v-else :key="product.description" class="w-full px-1 my-1 md:w-1/2 lg:my-4 lg:px-4 lg:w-1/3">
           <div class="overflow-hidden rounded-lg shadow-lg">
             <img
               alt="Placeholder"
@@ -27,7 +30,7 @@
 
 <script lang="ts">
 import { defineComponent } from 'vue'
-// import { searchProducts } from './netlify/functions/search-api.js'
+import axios from 'axios'
 
 export default defineComponent({
   props: {
@@ -42,9 +45,23 @@ export default defineComponent({
   },
   data() {
     return {
+      info: null,
+      loading: true,
       errored: false,
-      // items: searchProducts.products,
     }
+  },
+  mounted() {
+    axios
+      .get('/.netlify/functions/search-api')
+      .then((response) => {
+        console.log(response.data.results)
+        this.info = response.data
+      })
+      .catch((error) => {
+        console.log(error)
+        this.errored = true
+      })
+      .finally(() => this.loading = false)
   },
 })
 </script>
