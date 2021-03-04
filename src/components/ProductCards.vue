@@ -54,8 +54,7 @@ export default defineComponent({
     axios
       .get('/.netlify/functions/search-api')
       .then((response) => {
-        console.log(response.data.results)
-        this.info = response.data
+        this.info = response.data.products
       })
       .catch((error) => {
         console.log(error)
