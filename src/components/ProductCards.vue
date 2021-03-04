@@ -53,10 +53,7 @@ export default defineComponent({
   mounted() {
     axios
       .get('/.netlify/functions/search-api')
-      .then((response) => {
-        console.log(response.data)
-        this.info = response.data
-      })
+      .then(response => (this.info = response))
       .catch((error) => {
         console.log(error)
         this.errored = true
