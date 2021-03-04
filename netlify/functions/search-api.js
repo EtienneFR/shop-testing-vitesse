@@ -8,7 +8,7 @@ exports.handler = async(event, context) => {
     .then(response => response.json())
     .then(data => ({
       statusCode: 200,
-      products: JSON.stringify(data.results.map(product => ({
+      body: JSON.stringify(data.results.map(product => ({
         description: product.alt_description,
         url: product.urls.raw,
       }))),
