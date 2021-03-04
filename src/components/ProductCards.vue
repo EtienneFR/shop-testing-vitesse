@@ -9,7 +9,7 @@
         <div v-if="loading">
           Waiting...
         </div>
-        <div v-for="product in info" v-else :key="product.description" class="w-full px-1 my-1 md:w-1/2 lg:my-4 lg:px-4 lg:w-1/3">
+        <div v-for="product in info.products" v-else :key="product.description" class="w-full px-1 my-1 md:w-1/2 lg:my-4 lg:px-4 lg:w-1/3">
           <div class="overflow-hidden rounded-lg shadow-lg">
             <img
               alt="Placeholder"
@@ -54,7 +54,7 @@ export default defineComponent({
     axios
       .get('/.netlify/functions/search-api')
       .then((response) => {
-        this.info = response.data.products
+        this.info = response.data
       })
       .catch((error) => {
         console.log(error)
