@@ -19,7 +19,7 @@ devDependencies:
   '@vue/server-renderer': 3.0.7_vue@3.0.7
   cross-env: 7.0.3
   eslint: 7.21.0
-  markdown-it-prism: 2.1.5
+  markdown-it-prism: 2.1.6
   pnpm: 5.18.3
   typescript: 4.2.3
   vite: 2.0.5
@@ -1178,7 +1178,7 @@ packages:
     dependencies:
       '@nodelib/fs.stat': 2.0.4
       '@nodelib/fs.walk': 1.2.6
-      glob-parent: 5.1.1
+      glob-parent: 5.1.2
       merge2: 1.4.1
       micromatch: 4.0.2
       picomatch: 2.2.2
@@ -1914,7 +1914,7 @@ packages:
     dependencies:
       anymatch: 3.1.1
       braces: 3.0.2
-      glob-parent: 5.1.1
+      glob-parent: 5.1.2
       is-binary-path: 2.1.0
       is-glob: 4.0.1
       normalize-path: 3.0.0
@@ -1946,7 +1946,7 @@ packages:
       node: '>=4'
     resolution:
       integrity: sha1-jffHquUf02h06PjQW5GAvBGj/tc=
-  /clipboard/2.0.6:
+  /clipboard/2.0.7:
     dependencies:
       good-listener: 1.2.2
       select: 1.1.2
@@ -1954,7 +1954,7 @@ packages:
     dev: true
     optional: true
     resolution:
-      integrity: sha512-g5zbiixBRk/wyKakSwCKd7vQXDjFnAMGHoEyBogG/bw9kTD9GvdAvaoRR1ALcEzt3pVKxZR0pViekPMIS0QyGg==
+      integrity: sha512-8M8WEZcIvs0hgOma+wAPkrUxpv0PMY1L6VsAJh/2DOKARIMpyWe6ZLcEoe1qktl6/ced5ceYHs+oGedSbgZ3sg==
   /cliui/7.0.4:
     dependencies:
       string-width: 4.2.2
@@ -2657,7 +2657,7 @@ packages:
       esutils: 2.0.3
       file-entry-cache: 6.0.1
       functional-red-black-tree: 1.0.1
-      glob-parent: 5.1.1
+      glob-parent: 5.1.2
       globals: 12.4.0
       ignore: 4.0.6
       import-fresh: 3.3.0
@@ -2778,7 +2778,7 @@ packages:
     dependencies:
       '@nodelib/fs.stat': 2.0.4
       '@nodelib/fs.walk': 1.2.6
-      glob-parent: 5.1.1
+      glob-parent: 5.1.2
       merge2: 1.4.1
       micromatch: 4.0.2
       picomatch: 2.2.2
@@ -2944,14 +2944,14 @@ packages:
     dev: true
     resolution:
       integrity: sha1-Xv+OPmhNVprkyysSgmBOi6YhSfo=
-  /glob-parent/5.1.1:
+  /glob-parent/5.1.2:
     dependencies:
       is-glob: 4.0.1
     dev: true
     engines:
       node: '>= 6'
     resolution:
-      integrity: sha512-FnI+VGOpnlGHWZxthPGR+QhR78fuiK0sNLkHQv+bL9fQi57lNNdquIbna/WrfROrolq8GK5Ek6BiMwqL/voRYQ==
+      integrity: sha512-AOIgSQCepiJYwP3ARnGx+5VnTu2HBYdzbGP45eLw1vr3zB3vZLeyed1sC9hnbcOc9/SrMyM5RPQrkGz4aS9Zow==
   /glob-to-regexp/0.4.1:
     dev: true
     resolution:
@@ -3447,7 +3447,7 @@ packages:
       whatwg-encoding: 1.0.5
       whatwg-mimetype: 2.3.0
       whatwg-url: 8.4.0
-      ws: 7.4.3
+      ws: 7.4.4
       xml-name-validator: 3.0.0
     dev: true
     engines:
@@ -3676,14 +3676,14 @@ packages:
     dev: true
     resolution:
       integrity: sha512-4CrMT5DOHTDk4HYDlzmwu4FVCcIYI8gauveasrdCu2IKIFOJ3f0v/8MDGJCDL9oD2ppz/Av1b0Nj345H9M+XIA==
-  /markdown-it-prism/2.1.5:
+  /markdown-it-prism/2.1.6:
     dependencies:
       prismjs: 1.23.0
     dev: true
     engines:
       node: '>=6.0.0'
     resolution:
-      integrity: sha512-6nGloJM0L78Lzp1zlBPyKkiJh3MAqTXtD8xmA5ibjakqDDRF5IREAd6CSZyaNPzFUNWu6J4bqTo5uz+Un1XGoA==
+      integrity: sha512-fuo5lq36A6kzb882vCsvdyh4HUzpwdfNkAl92cr+MjUO0Q9foz/7MZ/RpKRBlZSwt86LmPlW7ubaEwf4C+0b3g==
   /markdown-it/12.0.4:
     dependencies:
       argparse: 2.0.1
@@ -4193,7 +4193,7 @@ packages:
   /prismjs/1.23.0:
     dev: true
     optionalDependencies:
-      clipboard: 2.0.6
+      clipboard: 2.0.7
     resolution:
       integrity: sha512-c29LVsqOaLbBHuIbsTxaKENh1N2EQBOHaWv7gkHN4dgRbxSREqDnDbtFJYdpPauS4YCplMSNCABQ6Eeor69bAA==
   /progress/2.0.3:
@@ -5513,7 +5513,7 @@ packages:
     dev: true
     resolution:
       integrity: sha1-tSQ9jz7BqjXxNkYFvA0QNuMKtp8=
-  /ws/7.4.3:
+  /ws/7.4.4:
     dev: true
     engines:
       node: '>=8.3.0'
@@ -5526,7 +5526,7 @@ packages:
       utf-8-validate:
         optional: true
     resolution:
-      integrity: sha512-hr6vCR76GsossIRsr8OLR9acVVm1jyfEWvhbNjtgPOrfvAlKzvyeg/P6r8RuDjRyrcQoPQT7K0DGEPc7Ae6jzA==
+      integrity: sha512-Qm8k8ojNQIMx7S+Zp8u/uHOx7Qazv3Yv4q68MiWWWOJhiwG5W3x7iqmRtJo8xxrciZUY4vRxUTJCKuRnF28ZZw==
   /xml-name-validator/3.0.0:
     dev: true
     resolution:
@@ -5613,7 +5613,7 @@ specifiers:
   axios: ^0.21.1
   cross-env: ^7.0.3
   eslint: ^7.21.0
-  markdown-it-prism: ^2.1.5
+  markdown-it-prism: ^2.1.6
   node-fetch: ^2.6.1
   nprogress: ^0.2.0
   pnpm: ^5.18.3
