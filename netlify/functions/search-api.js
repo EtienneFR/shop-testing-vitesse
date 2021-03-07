@@ -10,7 +10,8 @@ exports.handler = async(event, context) => {
       statusCode: 200,
       body: JSON.stringify(data.results.map(product => ({
         description: product.alt_description,
-        url: product.urls.raw,
+        small: product.urls.small,
+        raw: product.urls.raw,
       }))),
     }))
     .catch(error => ({ statusCode: 422, body: String(error) }))
