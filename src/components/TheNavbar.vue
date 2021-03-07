@@ -12,7 +12,7 @@
               >
                 <span class="sr-only">Open main menu</span>
 
-                <IconBase
+                <BaseIcon
                   class="block w-6 h-6"
                   stroke="currentColor"
                   aria-hidden="true"
@@ -23,23 +23,23 @@
                     stroke-width="2"
                     d="M4 6h16M4 12h16M4 18h16"
                   />
-                </IconBase>
+                </BaseIcon>
               </button>
             </div>
           </div>
-          <LinkBase class="flex hidden p-1 pr-3 text-gray-400 rounded-full sm:block hover:text-white" href="/">
-            <IconBase view-box="0 0 24 24" stroke="currentColor">
+          <BaseLink class="flex hidden p-1 pr-3 text-gray-400 rounded-full sm:block hover:text-white" href="/">
+            <BaseIcon view-box="0 0 24 24" stroke="currentColor">
               <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6" />
-            </IconBase>
-          </LinkBase>
+            </BaseIcon>
+          </BaseLink>
           <div v-for="link in links" :key="link.id" class="hidden sm:block">
             <div class="flex">
-              <LinkBase
+              <BaseLink
                 :href="link.to"
                 class="px-3 py-2 text-sm font-medium text-gray-100 rounded-md hover:bg-blue-600 hover:text-white"
               >
                 {{ link.text }}
-              </LinkBase>
+              </BaseLink>
             </div>
           </div>
         </div>
@@ -55,7 +55,7 @@
               @click.prevent="(isNotif = !isNotif), (isOpen = false)"
             >
               <span class="sr-only">View notifications</span>
-              <IconBase
+              <BaseIcon
                 classe="w-6 h-6"
                 view-box="0 0 24 24"
                 stroke="currentColor"
@@ -66,7 +66,7 @@
                   stroke-width="2"
                   d="M15 17h5l-1.405-1.405A2.032 2.032 0 0118 14.158V11a6.002 6.002 0 00-4-5.659V5a2 2 0 10-4 0v.341C7.67 6.165 6 8.388 6 11v3.159c0 .538-.214 1.055-.595 1.436L4 17h5m6 0v1a3 3 0 11-6 0v-1m6 0H9"
                 />
-              </IconBase>
+              </BaseIcon>
             </button>
             <div
               v-show="isNotif"
@@ -76,7 +76,7 @@
             >
               <div class="flex flex-row">
                 <div class="px-2">
-                  <IconBase
+                  <BaseIcon
                     classe="w-6 h-6"
                     view-box="0 0 1792 1792"
                     fill="#44C997"
@@ -84,7 +84,7 @@
                     <path
                       d="M1299 813l-422 422q-19 19-45 19t-45-19l-294-294q-19-19-19-45t19-45l102-102q19-19 45-19t45 19l147 147 275-275q19-19 45-19t45 19l102 102q19 19 19 45t-19 45zm141 83q0-148-73-273t-198-198-273-73-273 73-198 198-73 273 73 273 198 198 273 73 273-73 198-198 73-273zm224 0q0 209-103 385.5t-279.5 279.5-385.5 103-385.5-103-279.5-279.5-103-385.5 103-385.5 279.5-279.5 385.5-103 385.5 103 279.5 279.5 103 385.5z"
                     />
-                  </IconBase>
+                  </BaseIcon>
                 </div>
                 <div class="ml-2 mr-6 text-sm text-left">
                   <span class="font-semibold">Order #X100 saved!</span>
@@ -95,7 +95,7 @@
               </div>
               <div class="flex flex-row">
                 <div class="px-2">
-                  <IconBase
+                  <BaseIcon
                     view-box="0 0 510.111 510.111"
                     fill="#44C997"
                   >
@@ -119,7 +119,7 @@
   c8.533-8.533,22.756-8.533,31.289,0c8.533,8.533,8.533,22.756,0,31.289l-72.533,72.533l72.533,72.533
   C339.911,308.622,339.911,322.844,331.378,331.378z"
                     />
-                  </IconBase>
+                  </BaseIcon>
                 </div>
                 <div class="ml-2 mr-6 text-sm text-left">
                   <span class="font-semibold">Error order #X3910</span>
@@ -139,14 +139,14 @@
               @click.prevent="(isOpen = !isOpen), (isNotif = false)"
             >
               <span class="sr-only">Open user menu</span>
-              <IconBase classe="w-8 h-8 fill-current" view-box="0 0 24 24">
+              <BaseIcon classe="w-8 h-8" stroke="currentColor" view-box="0 0 24 24">
                 <path
                   stroke-linecap="round"
                   stroke-linejoin="round"
                   stroke-width="2"
                   d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z"
                 />
-              </IconBase>
+              </BaseIcon>
             </button>
             <div
               v-show="isOpen"
@@ -155,47 +155,47 @@
               aria-orientation="vertical"
               aria-labelledby="user-menu"
             >
-              <LinkBase
+              <BaseLink
                 href="#"
                 class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100"
                 role="menuitem"
               >
                 Profile
-              </LinkBase>
-              <LinkBase
+              </BaseLink>
+              <BaseLink
                 href="#"
                 class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100"
                 role="menuitem"
               >
                 Settings
-              </LinkBase>
-              <LinkBase
+              </BaseLink>
+              <BaseLink
                 href="#"
                 class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100"
                 role="menuitem"
               >
                 Logout
-              </LinkBase>
+              </BaseLink>
             </div>
           </div>
         </div>
       </div>
     </div>
     <div v-if="isOpenMenu">
-      <LinkBase
+      <BaseLink
         href="/"
         class="block py-2 text-base font-medium text-center text-gray-100 rounded-md hover:bg-blue-600 hover:text-white"
       >
         Home
-      </LinkBase>
+      </BaseLink>
       <div v-for="link in links" :key="link.id" class="pt-1 pb-2 space-y-1">
-        <LinkBase
+        <BaseLink
           :href="link.to"
           class="block py-2 text-base font-medium text-center text-gray-100 rounded-md hover:bg-blue-600 hover:text-white"
           data-toggle="dropdown"
         >
           {{ link.text }}
-        </LinkBase>
+        </BaseLink>
       </div>
     </div>
   </nav>
@@ -241,7 +241,7 @@ export default defineComponent({
     document.removeEventListener('click', this.close)
   },
   methods: {
-    close(e) {
+    close(e: any) {
       if (!this.$el.contains(e.target)) {
         this.isOpen = false
         this.isNotif = false

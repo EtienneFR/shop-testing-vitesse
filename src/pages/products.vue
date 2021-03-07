@@ -2,10 +2,9 @@
   <div>
     <div class="flex justify-center">
       <div class="w-full p-10 sm:w-3/5">
-        <SearchBar />
+        <AppSearchBar />
       </div>
     </div>
-
-    <ProductCards />
+    <AppProducts />
   </div>
 </template>

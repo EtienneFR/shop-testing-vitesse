@@ -13,7 +13,7 @@ useHead({
 </script>
 
 <template>
-  <NavBar />
+  <TheNavbar />
   <div class="w-full h-full">
     <router-view v-slot="{ Component }">
       <transition

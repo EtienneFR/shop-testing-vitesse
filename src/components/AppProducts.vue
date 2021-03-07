@@ -4,12 +4,12 @@
   </section>
 
   <section v-else>
-    <div class="flex items-center">
-      <div class="flex flex-wrap justify-center">
-        <div v-if="loading">
-          Waiting...
-        </div>
-        <div v-for="product in info" v-else :key="product.description" class="w-auto px-1 m-5 my-1 lg:w-1/3 lg:w-auto md:w-auto md:w-1/2 lg:my-4 lg:px-4">
+    <div class="flex items-center justify-center">
+      <div v-if="loading">
+        Waiting...
+      </div>
+      <div v-else class="flex flex-wrap justify-center">
+        <div v-for="product in info" :key="product.description" class="w-auto px-1 m-5 my-1 lg:w-1/3 lg:w-auto md:w-auto md:w-1/2 lg:my-4 lg:px-4">
           <div class="overflow-hidden rounded-lg shadow-lg">
             <img
               alt="Placeholder"

@@ -1,6 +1,5 @@
 <template>
   <svg
-    :class="classe"
     :width="width"
     :height="height"
     :viewBox="viewBox"
@@ -16,10 +15,6 @@ import { defineComponent } from 'vue'
 
 export default defineComponent({
   props: {
-    classe: {
-      type: String,
-      default: 'classes',
-    },
     width: {
       type: [Number, String],
       default: 24,
