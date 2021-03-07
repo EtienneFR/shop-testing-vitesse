@@ -15,3 +15,9 @@
   for = "/manifest.webmanifest"
   [headers.values]
     Content-Type = "application/manifest+json"
+
+[dev]
+  framework = "#custom"
+  command = "pnpm dev" # Command to start your dev server
+  targetPort = 3333 # The port for your application server, framework or site generator
+  port = 8888 # The port that the netlify dev will be accessible on
