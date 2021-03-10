@@ -1,5 +1,5 @@
 dependencies:
-  '@vueuse/core': 4.3.4_vue@3.0.7
+  '@vueuse/core': 4.3.5_vue@3.0.7
   '@vueuse/head': 0.2.3_vue@3.0.7
   axios: 0.21.1
   node-fetch: 2.6.1
@@ -1484,8 +1484,8 @@ packages:
       lru-cache: 5.1.1
       magic-string: 0.25.7
       merge-source-map: 1.1.0
-      postcss: 8.2.7
-      postcss-modules: 4.0.0_postcss@8.2.7
+      postcss: 8.2.8
+      postcss-modules: 4.0.0_postcss@8.2.8
       postcss-selector-parser: 6.0.4
       source-map: 0.6.1
       vue: 3.0.7
@@ -1536,15 +1536,15 @@ packages:
   /@vue/shared/3.0.7:
     resolution:
       integrity: sha512-dn5FyfSc4ky424jH4FntiHno7Ss5yLkqKNmM/NXwANRnlkmqu74pnGetexDFVG5phMk9/FhwovUZCWGxsotVKg==
-  /@vueuse/core/4.3.4_vue@3.0.7:
+  /@vueuse/core/4.3.5_vue@3.0.7:
     dependencies:
-      '@vueuse/shared': 4.3.4_vue@3.0.7
+      '@vueuse/shared': 4.3.5_vue@3.0.7
       vue-demi: 0.7.1_vue@3.0.7
     dev: false
     peerDependencies:
       vue: '*'
     resolution:
-      integrity: sha512-OKMJNdQltsMu8l9MMQ0qvjKK4kO5x0tHveqn6ypWcSQ/NSSMRcUynbE4G404DM52Adg3aFtgrirXcM4uoM6cjg==
+      integrity: sha512-9oBR7892aQyuMOFlQe7kFa/Ab6/R2OwLTap4RRPeih7LvwW1eiuhVDwG0nCameJjjBKZNV013n6RiRrSCJ9t5w==
   /@vueuse/head/0.2.3_vue@3.0.7:
     dependencies:
       vue: 3.0.7
@@ -1553,21 +1553,21 @@ packages:
       vue: '>=3'
     resolution:
       integrity: sha512-bAFZyUlT6+CVIwMcUw3TrtuhG/BfjS+UV5T8oH30tGPnVvqIsNuRCnNt9EbVd1GxHRDZD0K41515B5NiXPt84A==
-  /@vueuse/shared/4.3.4_vue@3.0.7:
+  /@vueuse/shared/4.3.5_vue@3.0.7:
     dependencies:
       vue-demi: 0.7.1_vue@3.0.7
     dev: false
     peerDependencies:
       vue: '*'
     resolution:
-      integrity: sha512-O1PxiG8cSD4YQKHJXWAeBVVTJNpBwCse7TkTsMqqLzqOjP2apbncfPzOcYJHVR5NkUXmtvPBIWAQuRavXKmHSw==
+      integrity: sha512-+AkucPD6Fs03fonj0dAfZb6PovDXzxM2OKj368Y20dMda1a1CG/2b1ztpExP1IfETOjusOY4kfCZvTCk1Q/rtA==
   /@windicss/plugin-utils/0.4.13:
     dependencies:
       esbuild: 0.8.57
       esbuild-register: 2.2.0_esbuild@0.8.57
       fast-glob: 3.2.5
       micromatch: 4.0.2
-      windicss: 2.3.0
+      windicss: 2.3.1
     dev: true
     resolution:
       integrity: sha512-8znQFQcADD3oZuHAdtB5CYt16eJDibK0rBlFhCEMjNlS7VuuBzJna2gA1OkxlQA89ts+Of8spFOJm84qCul/Eg==
@@ -1849,7 +1849,7 @@ packages:
       integrity: sha512-9o5UecI3GhkpM6DrXr69PblIuWxPKk9Y0jHBRhdocZ2y7YECBFCsHm79Pr3OyR2AvjhDkabFJaDJMYRazHgsow==
   /browserslist/4.16.3:
     dependencies:
-      caniuse-lite: 1.0.30001197
+      caniuse-lite: 1.0.30001198
       colorette: 1.2.2
       electron-to-chromium: 1.3.684
       escalade: 3.1.1
@@ -1890,10 +1890,10 @@ packages:
     dev: true
     resolution:
       integrity: sha1-yjw2iKTpzzpM2nd9xNy8cTJJz3M=
-  /caniuse-lite/1.0.30001197:
+  /caniuse-lite/1.0.30001198:
     dev: true
     resolution:
-      integrity: sha512-8aE+sqBqtXz4G8g35Eg/XEaFr2N7rd/VQ6eABGBmNtcB8cN6qNJhMi6oSFy4UWWZgqgL3filHT8Nha4meu3tsw==
+      integrity: sha512-r5GGgESqOPZzwvdLVER374FpQu2WluCF1Z2DSiFJ89KSmGjT0LVKjgv4NcAqHmGWF9ihNpqRI9KXO9Ex4sKsgA==
   /caseless/0.12.0:
     dev: true
     resolution:
@@ -3129,9 +3129,9 @@ packages:
     dev: true
     resolution:
       integrity: sha1-Bupvg2ead0njhs/h/oEq5dsiPe0=
-  /icss-utils/5.1.0_postcss@8.2.7:
+  /icss-utils/5.1.0_postcss@8.2.8:
     dependencies:
-      postcss: 8.2.7
+      postcss: 8.2.8
     dev: true
     engines:
       node: ^10 || ^12 || >= 14
@@ -4068,9 +4068,9 @@ packages:
     hasBin: true
     resolution:
       integrity: sha512-cTlgJ1VB41A8kDXohNJ/Ut08Mvj5hFNfjHSUx/Sz/xEvW0dvV7SVsAXY4wyak+AOBQdbvSmnqNUlKPT4wtMEvQ==
-  /postcss-modules-extract-imports/3.0.0_postcss@8.2.7:
+  /postcss-modules-extract-imports/3.0.0_postcss@8.2.8:
     dependencies:
-      postcss: 8.2.7
+      postcss: 8.2.8
     dev: true
     engines:
       node: ^10 || ^12 || >= 14
@@ -4078,10 +4078,10 @@ packages:
       postcss: ^8.1.0
     resolution:
       integrity: sha512-bdHleFnP3kZ4NYDhuGlVK+CMrQ/pqUm8bx/oGL93K6gVwiclvX5x0n76fYMKuIGKzlABOy13zsvqjb0f92TEXw==
-  /postcss-modules-local-by-default/4.0.0_postcss@8.2.7:
+  /postcss-modules-local-by-default/4.0.0_postcss@8.2.8:
     dependencies:
-      icss-utils: 5.1.0_postcss@8.2.7
-      postcss: 8.2.7
+      icss-utils: 5.1.0_postcss@8.2.8
+      postcss: 8.2.8
       postcss-selector-parser: 6.0.4
       postcss-value-parser: 4.1.0
     dev: true
@@ -4091,9 +4091,9 @@ packages:
       postcss: ^8.1.0
     resolution:
       integrity: sha512-sT7ihtmGSF9yhm6ggikHdV0hlziDTX7oFoXtuVWeDd3hHObNkcHRo9V3yg7vCAY7cONyxJC/XXCmmiHHcvX7bQ==
-  /postcss-modules-scope/3.0.0_postcss@8.2.7:
+  /postcss-modules-scope/3.0.0_postcss@8.2.8:
     dependencies:
-      postcss: 8.2.7
+      postcss: 8.2.8
       postcss-selector-parser: 6.0.4
     dev: true
     engines:
@@ -4102,10 +4102,10 @@ packages:
       postcss: ^8.1.0
     resolution:
       integrity: sha512-hncihwFA2yPath8oZ15PZqvWGkWf+XUfQgUGamS4LqoP1anQLOsOJw0vr7J7IwLpoY9fatA2qiGUGmuZL0Iqlg==
-  /postcss-modules-values/4.0.0_postcss@8.2.7:
+  /postcss-modules-values/4.0.0_postcss@8.2.8:
     dependencies:
-      icss-utils: 5.1.0_postcss@8.2.7
-      postcss: 8.2.7
+      icss-utils: 5.1.0_postcss@8.2.8
+      postcss: 8.2.8
     dev: true
     engines:
       node: ^10 || ^12 || >= 14
@@ -4113,16 +4113,16 @@ packages:
       postcss: ^8.1.0
     resolution:
       integrity: sha512-RDxHkAiEGI78gS2ofyvCsu7iycRv7oqw5xMWn9iMoR0N/7mf9D50ecQqUo5BZ9Zh2vH4bCUR/ktCqbB9m8vJjQ==
-  /postcss-modules/4.0.0_postcss@8.2.7:
+  /postcss-modules/4.0.0_postcss@8.2.8:
     dependencies:
       generic-names: 2.0.1
       icss-replace-symbols: 1.1.0
       lodash.camelcase: 4.3.0
-      postcss: 8.2.7
-      postcss-modules-extract-imports: 3.0.0_postcss@8.2.7
-      postcss-modules-local-by-default: 4.0.0_postcss@8.2.7
-      postcss-modules-scope: 3.0.0_postcss@8.2.7
-      postcss-modules-values: 4.0.0_postcss@8.2.7
+      postcss: 8.2.8
+      postcss-modules-extract-imports: 3.0.0_postcss@8.2.8
+      postcss-modules-local-by-default: 4.0.0_postcss@8.2.8
+      postcss-modules-scope: 3.0.0_postcss@8.2.8
+      postcss-modules-values: 4.0.0_postcss@8.2.8
       string-hash: 1.1.3
     dev: true
     peerDependencies:
@@ -4144,7 +4144,7 @@ packages:
     dev: true
     resolution:
       integrity: sha512-97DXOFbQJhk71ne5/Mt6cOu6yxsSfM0QGQyl0L25Gca4yGWEGJaig7l7gbCX623VqTBNGLRLaVUCnNkcedlRSQ==
-  /postcss/8.2.7:
+  /postcss/8.2.8:
     dependencies:
       colorette: 1.2.2
       nanoid: 3.1.20
@@ -4153,7 +4153,7 @@ packages:
     engines:
       node: ^10 || ^12 || >=14
     resolution:
-      integrity: sha512-DsVLH3xJzut+VT+rYr0mtvOtpTjSyqDwPf5EZWXcb0uAKfitGpTY9Ec+afi2+TgdN8rWS9Cs88UDYehKo/RvOw==
+      integrity: sha512-1F0Xb2T21xET7oQV9eKuctbM9S7BC0fetoHCc4H13z0PT6haiRLP4T0ZY4XWh7iLP0usgqykT6p9B2RtOf4FPw==
   /prelude-ls/1.1.2:
     dev: true
     engines:
@@ -5140,7 +5140,7 @@ packages:
     dependencies:
       '@windicss/plugin-utils': 0.4.13
       vite: 2.0.5
-      windicss: 2.3.0
+      windicss: 2.3.1
     dev: true
     peerDependencies:
       vite: ^2.0.1
@@ -5176,7 +5176,7 @@ packages:
   /vite/2.0.5:
     dependencies:
       esbuild: 0.8.57
-      postcss: 8.2.7
+      postcss: 8.2.8
       resolve: 1.20.0
       rollup: 2.41.0
     dev: true
@@ -5344,13 +5344,13 @@ packages:
     hasBin: true
     resolution:
       integrity: sha512-BLI3Tl1TW3Pvl70l3yq3Y64i+awpwXqsGBYWkkqMtnbXgrMD+yj7rhW0kuEDxzJaYXGjEW5ogapKNMEKNMjibA==
-  /windicss/2.3.0:
+  /windicss/2.3.1:
     dev: true
     engines:
       node: '>= 12'
     hasBin: true
     resolution:
-      integrity: sha512-OR/ULZmcVhtEJDIFnkz4S4v4efpZ8DuvDtzBwXNgbtiPQIxN0Zhpo59q0rfF0i3tfwjKw2KCQXNxL5E98bMuVA==
+      integrity: sha512-srYre86Qlwfb3pRqslFOEq9U9H+zrT6DIuV4DkTj8+JO1+yy8CrksDYqTUXr2985k+ORF0mj5YJMVjoKCuCQTg==
   /word-wrap/1.2.3:
     dev: true
     engines:
@@ -5578,12 +5578,12 @@ packages:
       node: '>= 10'
     resolution:
       integrity: sha512-gvtVaY+/mQ0OsXgaWy2Tf830JuXN7qEUYdXWsuiJVSkMRsBBQ90YVpQQofaURbhoA1xSbLBf7965oH6ddzNbBQ==
-  /yargs-parser/20.2.6:
+  /yargs-parser/20.2.7:
     dev: true
     engines:
       node: '>=10'
     resolution:
-      integrity: sha512-AP1+fQIWSM/sMiET8fyayjx/J+JmTPt2Mr0FkrgqB4todtfa53sOsrSAcIrJRD5XS20bKUwaDIuMkWKCEiQLKA==
+      integrity: sha512-FiNkvbeHzB/syOjIUxFDCnhSfzAL8R5vs40MgLFBorXACCOAEaWu0gRZl14vG8MR9AOJIZbmkjhusqBYZ3HTHw==
   /yargs/16.2.0:
     dependencies:
       cliui: 7.0.4
@@ -5592,7 +5592,7 @@ packages:
       require-directory: 2.1.1
       string-width: 4.2.2
       y18n: 5.0.5
-      yargs-parser: 20.2.6
+      yargs-parser: 20.2.7
     dev: true
     engines:
       node: '>=10'
@@ -5607,7 +5607,7 @@ specifiers:
   '@vitejs/plugin-vue': ^1.1.5
   '@vue/compiler-sfc': ^3.0.7
   '@vue/server-renderer': ^3.0.7
-  '@vueuse/core': ^4.3.4
+  '@vueuse/core': ^4.3.5
   '@vueuse/head': ^0.2.3
   axios: ^0.21.1
   cross-env: ^7.0.3

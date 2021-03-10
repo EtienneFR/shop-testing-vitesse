@@ -5,7 +5,7 @@
     "build": "cross-env NODE_ENV=production vite-ssg build"
   },
   "dependencies": {
-    "@vueuse/core": "^4.3.4",
+    "@vueuse/core": "^4.3.5",
     "@vueuse/head": "^0.2.3",
     "axios": "^0.21.1",
     "node-fetch": "^2.6.1",
