@@ -230,8 +230,8 @@ export default defineComponent({
     }
   },
   watch: {
-    $route(to, from) {
-      this.isOpenMenu = false
+    $route(to, from, e) {
+      this.close(e)
     },
   },
   mounted() {
