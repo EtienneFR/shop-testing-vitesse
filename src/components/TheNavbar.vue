@@ -248,7 +248,7 @@ export default defineComponent({
       if (!popup.contains(e.target)) {
         this.isOpen = false
         this.isNotif = false
-        if (!mobileMenu.contains(e.target))
+        if (!mobileMenu.contains(e.target) && !this.$el.contains(e.target))
           this.isOpenMenu = false
       }
     },
