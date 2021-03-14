@@ -1,8 +1,11 @@
-const { URL } = require('url');
-const fetch = require('node-fetch');
+const { URL } = require('url')
+const fetch = require('node-fetch')
 
 exports.handler = async(event, context) => {
-  const api = new URL('https://api.unsplash.com/search/photos?&orientation=landscape&query=products');
+  const query = event.queryStringParameters.query
+  const api = new URL(`https://api.unsplash.com/search/photos?&orientation=landscape&${new URLSearchParams({
+    query: `${query}`,
+  })}`)
 
   return fetch(api, { headers: { Authorization: process.env.TOKEN } })
     .then(response => response.json())
@@ -15,4 +18,4 @@ exports.handler = async(event, context) => {
       }))),
     }))
     .catch(error => ({ statusCode: 422, body: String(error) }))
-};
+}
