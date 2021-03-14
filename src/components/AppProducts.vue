@@ -3,9 +3,16 @@
   <div class="flex justify-center">
     <div class="w-full p-10 sm:w-3/5">
       <div class="flex justify-between bg-white rounded-full shadow-xl">
-        <input id="search" v-model="query" class="flex justify-start w-3/5 px-6 py-4 leading-tight text-gray-700 rounded-l-full sm:w-full focus:outline-none " type="text" placeholder="Search">
+        <input
+          id="search"
+          v-model="query"
+          class="flex justify-start w-3/5 px-6 py-4 leading-tight text-gray-700 rounded-l-full sm:w-full focus:outline-none "
+          type="text"
+          aria-label="search"
+          placeholder="Search"
+        >
         <div class="p-4">
-          <button class="flex items-center justify-center w-12 h-12 p-2 text-white bg-blue-600 rounded-full hover:bg-blue-400 focus:outline-none" @click="searchProducts">
+          <button class="flex items-center justify-center w-12 h-12 p-2 text-white bg-blue-600 rounded-full hover:bg-blue-400 focus:outline-none">
             <BaseIcon view-box="0 0 20 20" fill="currentColor">
               <path fill-rule="evenodd" d="M8 4a4 4 0 100 8 4 4 0 000-8zM2 8a6 6 0 1110.89 3.476l4.817 4.817a1 1 0 01-1.414 1.414l-4.816-4.816A6 6 0 012 8z" clip-rule="evenodd" />
             </BaseIcon>
@@ -22,7 +29,7 @@
   <section v-else>
     <div class="flex items-center justify-center">
       <div v-if="loading">
-        Waiting...
+        {{ waiting }}
       </div>
       <div v-else class="flex flex-wrap justify-center">
         <div v-for="product in info" :key="product.description" class="w-auto px-1 m-5 my-1 lg:w-1/3 lg:w-auto md:w-auto md:w-1/2 lg:my-4 lg:px-4">
@@ -42,6 +49,7 @@
 <script lang="ts">
 import { defineComponent } from 'vue'
 import axios from 'axios'
+import _ from 'lodash'
 
 export default defineComponent({
   props: {
@@ -59,14 +67,29 @@ export default defineComponent({
       info: null,
       loading: true,
       errored: false,
-      query: 'Products',
+      query: '',
+      debouncedGetQuery: null,
+      waiting: 'Type query to search products!',
     }
   },
-  mounted() {
-    this.searchProducts()
+  watch: {
+    query(newQuery, oldQuery) {
+      this.loading = true
+      this.waiting = 'Waiting...'
+      this.debouncedGetQuery()
+    },
+  },
+  created() {
+    this.debouncedGetQuery = _.debounce(this.searchProducts, 500)
   },
   methods: {
     searchProducts() {
+      if (this.query === '') {
+        this.info = null
+        this.loading = true
+        this.waiting = 'Type query to search products!'
+        return
+      }
       axios
         .get(`/.netlify/functions/search-api?&${new URLSearchParams({
           query: this.query,
