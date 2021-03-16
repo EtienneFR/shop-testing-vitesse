@@ -3,10 +3,17 @@
   <div class="flex justify-center">
     <div class="w-full p-10 sm:w-3/5">
       <div class="flex justify-between bg-white rounded-lg shadow-xl">
+        <div class="p-4">
+          <div class="flex items-center justify-center w-12 h-12 p-2 text-gray-400 rounded-full focus:outline-none">
+            <BaseIcon view-box="0 0 20 20" fill="currentColor">
+              <path fill-rule="evenodd" d="M8 4a4 4 0 100 8 4 4 0 000-8zM2 8a6 6 0 1110.89 3.476l4.817 4.817a1 1 0 01-1.414 1.414l-4.816-4.816A6 6 0 012 8z" clip-rule="evenodd" />
+            </BaseIcon>
+          </div>
+        </div>
         <input
           id="search"
           v-model="query"
-          class="flex justify-start w-3/5 px-6 py-4 leading-tight text-gray-700 rounded-l-full sm:w-full focus:outline-none "
+          class="flex justify-start w-full px-6 py-4 leading-tight text-gray-700 rounded-l-full sm:w-full focus:outline-none "
           type="text"
           aria-label="search"
           placeholder="Search"
