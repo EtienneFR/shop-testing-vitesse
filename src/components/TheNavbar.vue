@@ -27,9 +27,17 @@
               </button>
             </div>
           </div>
-          <BaseLink class="flex hidden p-1 pr-3 text-gray-400 rounded-full sm:block hover:text-white" href="/">
+          <BaseLink
+            class="flex hidden p-1 pr-3 text-gray-400 rounded-full sm:block hover:text-white"
+            href="/"
+          >
             <BaseIcon view-box="0 0 24 24" stroke="currentColor">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6" />
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="2"
+                d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6"
+              />
             </BaseIcon>
           </BaseLink>
           <div v-for="link in links" :key="link.id" class="hidden sm:block">
@@ -96,10 +104,7 @@
               </div>
               <div class="flex flex-row">
                 <div class="px-2">
-                  <BaseIcon
-                    view-box="0 0 510.111 510.111"
-                    fill="#44C997"
-                  >
+                  <BaseIcon view-box="0 0 510.111 510.111" fill="#44C997">
                     <circle
                       style="fill: #e24c4b"
                       cx="227.556"
@@ -140,7 +145,11 @@
               @click.prevent="(isOpen = !isOpen), (isNotif = false)"
             >
               <span class="sr-only">Open user menu</span>
-              <BaseIcon classe="w-8 h-8" stroke="currentColor" view-box="0 0 24 24">
+              <BaseIcon
+                classe="w-8 h-8"
+                stroke="currentColor"
+                view-box="0 0 24 24"
+              >
                 <path
                   stroke-linecap="round"
                   stroke-linejoin="round"
@@ -214,7 +223,7 @@ export default defineComponent({
       links: [
         {
           id: 1,
-          to: '#',
+          to: 'dashboard',
           text: 'Personal Space',
         },
         {
