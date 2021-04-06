@@ -5,7 +5,7 @@
     "build": "cross-env NODE_ENV=production vite-ssg build"
   },
   "dependencies": {
-    "@vueuse/core": "^4.6.3",
+    "@vueuse/core": "^4.7.0",
     "@vueuse/head": "^0.2.3",
     "axios": "^0.21.1",
     "lodash": "^4.17.21",
@@ -14,15 +14,15 @@
     "prism-theme-vars": "^0.1.4",
     "vue": "^3.0.11",
     "vue-i18n": "^9.0.0",
-    "vue-router": "^4.0.5"
+    "vue-router": "^4.0.6"
   },
   "devDependencies": {
     "@antfu/eslint-config": "^0.4.3",
-    "@iconify/json": "^1.1.324",
+    "@iconify/json": "^1.1.326",
     "@intlify/vite-plugin-vue-i18n": "^1.0.0-beta.17",
     "@types/lodash": "^4.14.168",
     "@types/nprogress": "^0.2.0",
-    "@typescript-eslint/eslint-plugin": "^4.20.0",
+    "@typescript-eslint/eslint-plugin": "^4.21.0",
     "@vitejs/plugin-vue": "^1.2.1",
     "@vue/compiler-sfc": "^3.0.11",
     "@vue/server-renderer": "^3.0.11",
