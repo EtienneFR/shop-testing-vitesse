@@ -257,12 +257,51 @@
 </template>
 
 <script lang="ts">
-import { defineComponent } from 'vue'
+import { defineComponent, onMounted } from 'vue'
 import netlifyAuth from '../netlifyAuth'
 import { useState } from '../composable/state'
 
 export default defineComponent({
+  setup() {
+    const [loggedIn, setLoggedIn] = useState(netlifyAuth.isAuthenticated)
+    const [user, setUser] = useState(null)
+
+    const init = () => {
+      netlifyAuth.initialize((user) => {
+        setLoggedIn(!!user)
+      })
+    }
+
+    const login = () => {
+      netlifyAuth.authenticate((user) => {
+        setLoggedIn(!!user)
+        setUser(user)
+        netlifyAuth.closeModal()
+      })
+    }
+    const logout = () => {
+      netlifyAuth.signout(() => {
+        setLoggedIn(false)
+        setUser(null)
+      })
+    }
+
+    onMounted(() => {
+      init()
+    })
+
+    return {
+      loggedIn,
+      setLoggedIn,
+      user,
+      setUser,
+      init,
+      login,
+      logout,
+    }
+  },
   data() {
+    const [user, setUser] = useState(null)
     return {
       isOpen: false,
       isNotif: false,
@@ -325,31 +364,6 @@ export default defineComponent({
         if (!mobileMenu.contains(e.target) && !this.$el.contains(e.target))
           this.isOpenMenu = false
       }
-    },
-    init() {
-      const [loggedIn, setLoggedIn] = useState(netlifyAuth.isAuthenticated)
-      netlifyAuth.initialize((user) => {
-        setLoggedIn(!!user)
-      })
-    },
-    login() {
-      const [loggedIn, setLoggedIn] = useState(netlifyAuth.isAuthenticated)
-      const [user, setUser] = useState(null)
-      netlifyAuth.authenticate((user) => {
-        console.log('test')
-        setLoggedIn(!!user)
-        setUser(user)
-        netlifyAuth.closeModal()
-      })
-    },
-
-    logout() {
-      const [loggedIn, setLoggedIn] = useState(netlifyAuth.isAuthenticated)
-      const [user, setUser] = useState(null)
-      netlifyAuth.signout(() => {
-        setLoggedIn(false)
-        setUser(null)
-      })
     },
   },
 })

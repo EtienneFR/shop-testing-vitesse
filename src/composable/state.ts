@@ -1,4 +1,3 @@
-// src/composables/state.js
 import { readonly, ref } from 'vue'
 
 export function useState(initialState: any) {

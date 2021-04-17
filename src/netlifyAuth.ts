@@ -5,14 +5,13 @@ const netlifyAuth = {
   user: null,
   initialize(callback: any) {
     window.netlifyIdentity = netlifyIdentity
-    netlifyIdentity.init({
-      APIUrl: 'https://shop-testing-vitesse.netlify.app/',
-      logo: true, // you can try false and see what happens
-    })
     netlifyIdentity.on('init', (user) => {
       callback(user)
     })
-    netlifyIdentity.init()
+    netlifyIdentity.init({
+      APIUrl: 'https://shop-testing-vitesse.netlify.app/.netlify/identity',
+      logo: true,
+    })
   },
   authenticate(callback: any) {
     this.isAuthenticated = true
