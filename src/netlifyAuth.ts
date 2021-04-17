@@ -1,15 +1,14 @@
 import netlifyIdentity from 'netlify-identity-widget'
 
-netlifyIdentity.init({
-  APIUrl: 'https://shop-testing-vitesse.netlify.app/',
-  logo: true, // you can try false and see what happens
-})
-
 const netlifyAuth = {
   isAuthenticated: false,
   user: null,
   initialize(callback: any) {
     window.netlifyIdentity = netlifyIdentity
+    netlifyIdentity.init({
+      APIUrl: 'https://shop-testing-vitesse.netlify.app/',
+      logo: true, // you can try false and see what happens
+    })
     netlifyIdentity.on('init', (user) => {
       callback(user)
     })
