@@ -5,6 +5,7 @@ specifiers:
   '@iconify/json': ^1.1.326
   '@intlify/vite-plugin-vue-i18n': ^1.0.0-beta.17
   '@types/lodash': ^4.14.168
+  '@types/netlify-identity-widget': ^1.9.1
   '@types/nprogress': ^0.2.0
   '@typescript-eslint/eslint-plugin': ^4.21.0
   '@vitejs/plugin-vue': ^1.2.1
@@ -17,6 +18,7 @@ specifiers:
   eslint: ^7.23.0
   lodash: ^4.17.21
   markdown-it-prism: ^2.1.6
+  netlify-identity-widget: ^1.9.1
   node-fetch: ^2.6.1
   nprogress: ^0.2.0
   pnpm: ^5.18.9
@@ -40,6 +42,7 @@ dependencies:
   '@vueuse/head': 0.2.3_vue@3.0.11
   axios: 0.21.1
   lodash: 4.17.21
+  netlify-identity-widget: 1.9.1
   node-fetch: 2.6.1
   nprogress: 0.2.0
   prism-theme-vars: 0.1.4
@@ -52,6 +55,7 @@ devDependencies:
   '@iconify/json': 1.1.326
   '@intlify/vite-plugin-vue-i18n': 1.0.0-beta.17
   '@types/lodash': 4.14.168
+  '@types/netlify-identity-widget': 1.9.1
   '@types/nprogress': 0.2.0
   '@typescript-eslint/eslint-plugin': 4.21.0_eslint@7.23.0+typescript@4.2.4
   '@vitejs/plugin-vue': 1.2.1_@vue+compiler-sfc@3.0.11
@@ -1294,8 +1298,8 @@ packages:
       '@nodelib/fs.walk': 1.2.6
       glob-parent: 5.1.2
       merge2: 1.4.1
-      micromatch: 4.0.2
-      picomatch: 2.2.2
+      micromatch: 4.0.4
+      picomatch: 2.2.3
     dev: true
 
   /@nodelib/fs.scandir/2.1.4:
@@ -1404,6 +1408,10 @@ packages:
 
   /@types/lodash/4.14.168:
     resolution: {integrity: sha512-oVfRvqHV/V6D1yifJbVRU3TMp8OT6o6BG+U9MkwuJ3U8/CsDHvalRpsxBqivn71ztOFZBTfJMvETbqHiaNSj7Q==}
+    dev: true
+
+  /@types/netlify-identity-widget/1.9.1:
+    resolution: {integrity: sha512-xpFJL+1lQN2L+TLuX2tKyUlAcXhZuTEFGzsmaqjtm/sVY8YdPjMhT/iHoxJqeZQYZ5TtKtAlZqqdbEAIUvJwHQ==}
     dev: true
 
   /@types/node/14.14.37:
@@ -3712,6 +3720,14 @@ packages:
       picomatch: 2.2.2
     dev: true
 
+  /micromatch/4.0.4:
+    resolution: {integrity: sha512-pRmzw/XUcwXGpD9aI9q/0XOwLNygjETJ8y0ao0wdqprrzDa4YnxLcz7fQRZr8voh8V10kGhABbNcHVk5wHgWwg==}
+    engines: {node: '>=8.6'}
+    dependencies:
+      braces: 3.0.2
+      picomatch: 2.2.3
+    dev: true
+
   /mime-db/1.47.0:
     resolution: {integrity: sha512-QBmA/G2y+IfeS4oktet3qRZ+P5kPhCKRXxXnQEudYqUaEioAU1/Lq2us3D/t1Jfo4hE9REQPrbB7K5sOczJVIw==}
     engines: {node: '>= 0.6'}
@@ -3755,6 +3771,10 @@ packages:
   /natural-compare/1.4.0:
     resolution: {integrity: sha1-Sr6/7tdUHywnrPspvbvRXI1bpPc=}
     dev: true
+
+  /netlify-identity-widget/1.9.1:
+    resolution: {integrity: sha512-9oIWjwUSdRk3SkREcZNjZaVuDDx9T/wSIXZNQsQeY4qoXic/FiXVEGgu2RU3IuA4OI3L2652xY1o+PpS03Ugaw==}
+    dev: false
 
   /no-case/2.3.2:
     resolution: {integrity: sha512-rmTZ9kz+f3rCvK2TD1Ue/oZlns7OGoIWP4fc3llxxRXlOkHKoWPPWJOfFYpITabSow43QJbRIoHQXtt10VldyQ==}
@@ -4003,6 +4023,11 @@ packages:
 
   /picomatch/2.2.2:
     resolution: {integrity: sha512-q0M/9eZHzmr0AulXyPwNfZjtwZ/RBZlbN3K3CErVrk50T2ASYI7Bye0EvekFY3IP1Nt2DHu0re+V2ZHIpMkuWg==}
+    engines: {node: '>=8.6'}
+    dev: true
+
+  /picomatch/2.2.3:
+    resolution: {integrity: sha512-KpELjfwcCDUb9PeigTs2mBJzXUPzAuP2oPcA989He8Rte0+YUAjw1JVedDhuTKPkHjSYzMN3npC9luThGYEKdg==}
     engines: {node: '>=8.6'}
     dev: true
 

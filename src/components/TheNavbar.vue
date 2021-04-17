@@ -40,23 +40,37 @@
               />
             </BaseIcon>
           </BaseLink>
-          <div v-for="link in links" :key="link.id" class="hidden sm:block">
-            <div class="flex">
-              <BaseLink
-                :href="link.to"
-                class="px-3 py-2 text-sm font-medium text-gray-100 rounded-md hover:bg-blue-600 hover:text-white"
-              >
-                {{ link.text }}
-              </BaseLink>
+          <template v-if="loggedIn">
+            <div v-for="link in loggedLinks" :key="link.id" class="hidden sm:block">
+              <div class="flex">
+                <BaseLink
+                  :href="link.to"
+                  class="px-3 py-2 text-sm font-medium text-gray-100 rounded-md hover:bg-blue-600 hover:text-white"
+                >
+                  {{ link.text }}
+                </BaseLink>
+              </div>
             </div>
-          </div>
+          </template>
+          <template v-else>
+            <div v-for="link in unLoggedLinks" :key="link.id" class="hidden sm:block">
+              <div class="flex">
+                <BaseLink
+                  :href="link.to"
+                  class="px-3 py-2 text-sm font-medium text-gray-100 rounded-md hover:bg-blue-600 hover:text-white"
+                >
+                  {{ link.text }}
+                </BaseLink>
+              </div>
+            </div>
+          </template>
         </div>
         <div
           ref="popup"
           class="absolute inset-y-0 right-0 flex items-center pr-2 sm:static sm:inset-auto sm:ml-6 sm:pr-0"
         >
           <!-- Notification Menu -->
-          <div class="relative ml-3">
+          <div v-if="loggedIn" class="relative ml-3">
             <button
               id="notification-menu"
               class="flex p-1 text-gray-400 rounded-full hover:text-white"
@@ -137,7 +151,7 @@
             </div>
           </div>
           <!-- User Menu -->
-          <div class="relative ml-3">
+          <div v-if="loggedIn" class="relative ml-3">
             <button
               id="user-menu"
               class="flex text-gray-400 rounded-full hover:text-white focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-blue-800 focus:ring-white"
@@ -183,10 +197,29 @@
                 href="#"
                 class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100"
                 role="menuitem"
+                @click="logout"
               >
                 Logout
               </BaseLink>
             </div>
+          </div>
+          <div v-else>
+            <button
+              id="user-menu"
+              class="flex text-gray-400 rounded-full hover:text-white focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-blue-800 focus:ring-white"
+              aria-haspopup="true"
+              @click.prevent="(isOpen = !isOpen), (isNotif = false)"
+              @click="login"
+            >
+              <span class="sr-only">Open login form</span>
+              <BaseIcon
+                classe="w-8 h-8"
+                stroke="currentColor"
+                view-box="0 0 24 24"
+              >
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M11 16l-4-4m0 0l4-4m-4 4h14m-5 4v1a3 3 0 01-3 3H6a3 3 0 01-3-3V7a3 3 0 013-3h7a3 3 0 013 3v1" />
+              </BaseIcon>
+            </button>
           </div>
         </div>
       </div>
@@ -198,21 +231,35 @@
       >
         Home
       </BaseLink>
-      <div v-for="link in links" :key="link.id" class="pt-1 pb-2 space-y-1">
-        <BaseLink
-          :href="link.to"
-          class="block py-2 text-base font-medium text-center text-gray-100 rounded-md hover:bg-blue-600 hover:text-white"
-          data-toggle="dropdown"
-        >
-          {{ link.text }}
-        </BaseLink>
-      </div>
+      <template v-if="loggedIn">
+        <div v-for="link in loggedLinks" :key="link.id" class="hidden sm:block">
+          <BaseLink
+            :href="link.to"
+            class="px-3 py-2 text-sm font-medium text-gray-100 rounded-md hover:bg-blue-600 hover:text-white"
+          >
+            {{ link.text }}
+          </BaseLink>
+        </div>
+      </template>
+      <template v-else>
+        <div v-for="link in unLoggedLinks" :key="link.id" class="pt-1 pb-2 space-y-1">
+          <BaseLink
+            :href="link.to"
+            class="block py-2 text-base font-medium text-center text-gray-100 rounded-md hover:bg-blue-600 hover:text-white"
+            data-toggle="dropdown"
+          >
+            {{ link.text }}
+          </BaseLink>
+        </div>
+      </template>
     </div>
   </nav>
 </template>
 
 <script lang="ts">
 import { defineComponent } from 'vue'
+import netlifyAuth from '../netlifyAuth'
+import { useState } from '../composable/state'
 
 export default defineComponent({
   data() {
@@ -225,19 +272,37 @@ export default defineComponent({
           id: 1,
           to: 'dashboard',
           text: 'Personal Space',
+          logged: true,
+          unLogged: false,
         },
         {
           id: 2,
           to: 'products',
           text: 'Products',
+          logged: true,
+          unLogged: true,
         },
         {
           id: 3,
           to: '#',
           text: 'Discount',
+          logged: true,
+          unLogged: true,
         },
       ],
     }
+  },
+  computed: {
+    loggedLinks() {
+      return this.links.filter((u) => {
+        return u.logged
+      })
+    },
+    unLoggedLinks() {
+      return this.links.filter((u) => {
+        return u.unLogged
+      })
+    },
   },
   watch: {
     $route(to, from, e) {
@@ -260,6 +325,31 @@ export default defineComponent({
         if (!mobileMenu.contains(e.target) && !this.$el.contains(e.target))
           this.isOpenMenu = false
       }
+    },
+    init() {
+      const [loggedIn, setLoggedIn] = useState(netlifyAuth.isAuthenticated)
+      netlifyAuth.initialize((user) => {
+        setLoggedIn(!!user)
+      })
+    },
+    login() {
+      const [loggedIn, setLoggedIn] = useState(netlifyAuth.isAuthenticated)
+      const [user, setUser] = useState(null)
+      netlifyAuth.authenticate((user) => {
+        console.log('test')
+        setLoggedIn(!!user)
+        setUser(user)
+        netlifyAuth.closeModal()
+      })
+    },
+
+    logout() {
+      const [loggedIn, setLoggedIn] = useState(netlifyAuth.isAuthenticated)
+      const [user, setUser] = useState(null)
+      netlifyAuth.signout(() => {
+        setLoggedIn(false)
+        setUser(null)
+      })
     },
   },
 })
