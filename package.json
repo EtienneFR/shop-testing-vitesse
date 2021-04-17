@@ -9,6 +9,7 @@
     "@vueuse/head": "^0.2.3",
     "axios": "^0.21.1",
     "lodash": "^4.17.21",
+    "netlify-identity-widget": "^1.9.1",
     "node-fetch": "^2.6.1",
     "nprogress": "^0.2.0",
     "prism-theme-vars": "^0.1.4",

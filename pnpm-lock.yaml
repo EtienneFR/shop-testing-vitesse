@@ -18,6 +18,7 @@ specifiers:
   eslint: ^7.24.0
   lodash: ^4.17.21
   markdown-it-prism: ^2.1.6
+  netlify-identity-widget: ^1.9.1
   node-fetch: ^2.6.1
   nprogress: ^0.2.0
   pnpm: ^5.18.9
@@ -41,6 +42,7 @@ dependencies:
   '@vueuse/head': 0.2.3_vue@3.0.11
   axios: 0.21.1
   lodash: 4.17.21
+  netlify-identity-widget: 1.9.1
   node-fetch: 2.6.1
   nprogress: 0.2.0
   prism-theme-vars: 0.1.4
@@ -3761,6 +3763,10 @@ packages:
   /natural-compare/1.4.0:
     resolution: {integrity: sha1-Sr6/7tdUHywnrPspvbvRXI1bpPc=}
     dev: true
+
+  /netlify-identity-widget/1.9.1:
+    resolution: {integrity: sha512-9oIWjwUSdRk3SkREcZNjZaVuDDx9T/wSIXZNQsQeY4qoXic/FiXVEGgu2RU3IuA4OI3L2652xY1o+PpS03Ugaw==}
+    dev: false
 
   /no-case/2.3.2:
     resolution: {integrity: sha512-rmTZ9kz+f3rCvK2TD1Ue/oZlns7OGoIWP4fc3llxxRXlOkHKoWPPWJOfFYpITabSow43QJbRIoHQXtt10VldyQ==}
