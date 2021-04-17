@@ -232,10 +232,11 @@
         Home
       </BaseLink>
       <template v-if="loggedIn">
-        <div v-for="link in loggedLinks" :key="link.id" class="hidden sm:block">
+        <div v-for="link in loggedLinks" :key="link.id" class="pt-1 pb-2 space-y-1">
           <BaseLink
             :href="link.to"
-            class="px-3 py-2 text-sm font-medium text-gray-100 rounded-md hover:bg-blue-600 hover:text-white"
+            class="block py-2 text-base font-medium text-center text-gray-100 rounded-md hover:bg-blue-600 hover:text-white"
+            data-toggle="dropdown"
           >
             {{ link.text }}
           </BaseLink>
@@ -276,7 +277,6 @@ export default defineComponent({
       netlifyAuth.authenticate((user) => {
         setLoggedIn(!!user)
         setUser(user)
-        netlifyAuth.closeModal()
       })
     }
     const logout = () => {
