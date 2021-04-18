@@ -41,7 +41,11 @@
             </BaseIcon>
           </BaseLink>
           <template v-if="loggedIn">
-            <div v-for="link in loggedLinks" :key="link.id" class="hidden sm:block">
+            <div
+              v-for="link in loggedLinks"
+              :key="link.id"
+              class="hidden sm:block"
+            >
               <div class="flex">
                 <BaseLink
                   :href="link.to"
@@ -53,7 +57,11 @@
             </div>
           </template>
           <template v-else>
-            <div v-for="link in unLoggedLinks" :key="link.id" class="hidden sm:block">
+            <div
+              v-for="link in unLoggedLinks"
+              :key="link.id"
+              class="hidden sm:block"
+            >
               <div class="flex">
                 <BaseLink
                   :href="link.to"
@@ -75,7 +83,7 @@
               id="notification-menu"
               class="flex p-1 text-gray-400 rounded-full hover:text-white"
               aria-haspopup="true"
-              @click.prevent="(isNotif = !isNotif), (isOpen = false)"
+              @click.prevent=";(isNotif = !isNotif), (isOpen = false)"
             >
               <span class="sr-only">View notifications</span>
               <BaseIcon
@@ -111,9 +119,9 @@
                 </div>
                 <div class="ml-2 mr-6 text-sm text-left">
                   <span class="font-semibold">Order #X100 saved!</span>
-                  <span
-                    class="block text-gray-500"
-                  >Go to your personal space</span>
+                  <span class="block text-gray-500"
+                    >Go to your personal space</span
+                  >
                 </div>
               </div>
               <div class="flex flex-row">
@@ -143,9 +151,9 @@
                 </div>
                 <div class="ml-2 mr-6 text-sm text-left">
                   <span class="font-semibold">Error order #X3910</span>
-                  <span
-                    class="block text-gray-500"
-                  >Item is no longer available</span>
+                  <span class="block text-gray-500"
+                    >Item is no longer available</span
+                  >
                 </div>
               </div>
             </div>
@@ -156,7 +164,7 @@
               id="user-menu"
               class="flex text-gray-400 rounded-full hover:text-white focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-blue-800 focus:ring-white"
               aria-haspopup="true"
-              @click.prevent="(isOpen = !isOpen), (isNotif = false)"
+              @click.prevent=";(isOpen = !isOpen), (isNotif = false)"
             >
               <span class="sr-only">Open user menu</span>
               <BaseIcon
@@ -208,8 +216,8 @@
               id="user-menu"
               class="flex text-gray-400 rounded-full hover:text-white focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-blue-800 focus:ring-white"
               aria-haspopup="true"
-              @click.prevent="(isOpen = !isOpen), (isNotif = false)"
-              @click="login"
+              @click.prevent=";(isOpen = !isOpen), (isNotif = false)"
+              @click="authenticate"
             >
               <span class="sr-only">Open login form</span>
               <BaseIcon
@@ -217,7 +225,12 @@
                 stroke="currentColor"
                 view-box="0 0 24 24"
               >
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M11 16l-4-4m0 0l4-4m-4 4h14m-5 4v1a3 3 0 01-3 3H6a3 3 0 01-3-3V7a3 3 0 013-3h7a3 3 0 013 3v1" />
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="2"
+                  d="M11 16l-4-4m0 0l4-4m-4 4h14m-5 4v1a3 3 0 01-3 3H6a3 3 0 01-3-3V7a3 3 0 013-3h7a3 3 0 013 3v1"
+                />
               </BaseIcon>
             </button>
           </div>
@@ -232,7 +245,11 @@
         Home
       </BaseLink>
       <template v-if="loggedIn">
-        <div v-for="link in loggedLinks" :key="link.id" class="pt-1 pb-2 space-y-1">
+        <div
+          v-for="link in loggedLinks"
+          :key="link.id"
+          class="pt-1 pb-2 space-y-1"
+        >
           <BaseLink
             :href="link.to"
             class="block py-2 text-base font-medium text-center text-gray-100 rounded-md hover:bg-blue-600 hover:text-white"
@@ -243,7 +260,11 @@
         </div>
       </template>
       <template v-else>
-        <div v-for="link in unLoggedLinks" :key="link.id" class="pt-1 pb-2 space-y-1">
+        <div
+          v-for="link in unLoggedLinks"
+          :key="link.id"
+          class="pt-1 pb-2 space-y-1"
+        >
           <BaseLink
             :href="link.to"
             class="block py-2 text-base font-medium text-center text-gray-100 rounded-md hover:bg-blue-600 hover:text-white"
@@ -258,45 +279,22 @@
 </template>
 
 <script lang="ts">
-import { defineComponent, onMounted } from 'vue'
-import { useAuthContext } from '../composable/auth'
-import { useState } from '../composable/state'
+import { defineComponent, inject, onMounted } from 'vue'
+import { useAuthContext } from '../composables/auth'
+import { useState } from '../composables/state'
 
 export default defineComponent({
   setup() {
+    // Inject user information of authentification
     const { initialize, authenticate, signout } = useAuthContext()
-    const [loggedIn, setLoggedIn] = useState(useAuthContext.isAuthenticated)
-    const [user, setUser] = useState(null)
-
-    const init = () => {
-      initialize((user) => {
-        setLoggedIn(!!user)
-      })
-    }
-
-    const login = () => {
-      authenticate((user) => {
-        setLoggedIn(!!user)
-        setUser(user)
-      })
-    }
-    const logout = () => {
-      signout(() => {
-        setLoggedIn(false)
-        setUser(null)
-      })
-    }
-
-    onMounted(() => {
-      init()
-    })
 
     return {
-      init, login, logout, loggedIn, setLoggedIn, user, setUser,
+      initialize,
+      authenticate,
+      signout
     }
   },
   data() {
-    const [user, setUser] = useState(null)
     return {
       isOpen: false,
       isNotif: false,
@@ -307,23 +305,23 @@ export default defineComponent({
           to: 'dashboard',
           text: 'Personal Space',
           logged: true,
-          unLogged: false,
+          unLogged: false
         },
         {
           id: 2,
           to: 'products',
           text: 'Products',
           logged: true,
-          unLogged: true,
+          unLogged: true
         },
         {
           id: 3,
           to: '#',
           text: 'Discount',
           logged: true,
-          unLogged: true,
-        },
-      ],
+          unLogged: true
+        }
+      ]
     }
   },
   computed: {
@@ -336,12 +334,12 @@ export default defineComponent({
       return this.links.filter((u) => {
         return u.unLogged
       })
-    },
+    }
   },
   watch: {
     $route(to, from, e) {
       this.close(e)
-    },
+    }
   },
   mounted() {
     document.addEventListener('click', this.close)
@@ -359,7 +357,7 @@ export default defineComponent({
         if (!mobileMenu.contains(e.target) && !this.$el.contains(e.target))
           this.isOpenMenu = false
       }
-    },
-  },
+    }
+  }
 })
 </script>

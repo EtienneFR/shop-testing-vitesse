@@ -1,13 +1,49 @@
-<script setup lang="ts">
-import { useHead } from "@vueuse/head";
+<script lang="ts">
+import { defineComponent, onMounted } from 'vue'
+import { useAuthProvider } from './composables/auth'
+import { useState } from './composables/state'
 
-// https://github.com/vueuse/head
-// you can use this to manipulate the document head in any components,
-// they will be renedered correctly in the html results with vite-ssg
-useHead({
-  title: "Vitesse",
-  meta: [{ name: "description", content: "Opinionated Vite Starter Template" }],
-});
+export default defineComponent({
+  // Provide user information of authentification
+  setup() {
+    const { initialize, authenticate, signout } = useAuthProvider()
+    const [loggedIn, setLoggedIn] = useState(useAuthProvider.isAuthenticated)
+    const [user, setUser] = useState(null)
+
+    const init = () => {
+      initialize((user) => {
+        setLoggedIn(!!user)
+      })
+    }
+
+    const login = () => {
+      authenticate((user) => {
+        setLoggedIn(!!user)
+        setUser(user)
+      })
+    }
+    const logout = () => {
+      signout(() => {
+        setLoggedIn(false)
+        setUser(null)
+      })
+    }
+
+    onMounted(() => {
+      init()
+    })
+
+    return {
+      init,
+      login,
+      logout,
+      loggedIn,
+      setLoggedIn,
+      user,
+      setUser
+    }
+  }
+})
 </script>
 
 <template>

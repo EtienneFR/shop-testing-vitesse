@@ -20,7 +20,7 @@ export function useAuthProvider() {
     })
     netlifyIdentity.init({
       APIUrl: 'https://shop-testing-vitesse.netlify.app/.netlify/identity',
-      logo: true,
+      logo: true
     })
   }
 
@@ -50,7 +50,7 @@ export function useAuthProvider() {
   return {
     initialize,
     authenticate,
-    signout,
+    signout
   }
 }
 
@@ -62,6 +62,6 @@ export function useAuthContext() {
   return {
     initialize,
     authenticate,
-    signout,
+    signout
   }
 }
