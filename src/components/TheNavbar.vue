@@ -259,28 +259,29 @@
 
 <script lang="ts">
 import { defineComponent, onMounted } from 'vue'
-import netlifyAuth from '../netlifyAuth'
+import { auth } from '../composable/auth'
 import { useState } from '../composable/state'
 
 export default defineComponent({
   setup() {
-    const [loggedIn, setLoggedIn] = useState(netlifyAuth.isAuthenticated)
+    const { initialize, authenticate, signout } = auth()
+    const [loggedIn, setLoggedIn] = useState(auth.isAuthenticated)
     const [user, setUser] = useState(null)
 
     const init = () => {
-      netlifyAuth.initialize((user) => {
+      auth.initialize((user) => {
         setLoggedIn(!!user)
       })
     }
 
     const login = () => {
-      netlifyAuth.authenticate((user) => {
+      auth.authenticate((user) => {
         setLoggedIn(!!user)
         setUser(user)
       })
     }
     const logout = () => {
-      netlifyAuth.signout(() => {
+      auth.signout(() => {
         setLoggedIn(false)
         setUser(null)
       })
@@ -291,13 +292,7 @@ export default defineComponent({
     })
 
     return {
-      loggedIn,
-      setLoggedIn,
-      user,
-      setUser,
-      init,
-      login,
-      logout,
+      initialize, authenticate, signout,
     }
   },
   data() {
