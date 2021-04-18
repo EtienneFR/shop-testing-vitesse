@@ -9,9 +9,9 @@ type AuthInitializeProvided = (callback: any) => void
 type AuthAuthenticateProvided = (callback: any) => void
 type AuthSignoutProvided = (callback: any) => void
 
-export function AuthProvider() {
+export function useAuthProvider() {
   const isAuthenticated = ref<boolean>(false)
-  const user = ref<Object>()
+  const user = ref()
 
   function initialize(callback: any) {
     window.netlifyIdentity = netlifyIdentity
@@ -54,7 +54,7 @@ export function AuthProvider() {
   }
 }
 
-export function auth() {
+export function useAuthContext() {
   const initialize = inject<AuthInitializeProvided>(AuthInitializeSymbol)
   const authenticate = inject<AuthAuthenticateProvided>(AuthAuthenticateSymbol)
   const signout = inject<AuthSignoutProvided>(AuthSignoutSymbol)

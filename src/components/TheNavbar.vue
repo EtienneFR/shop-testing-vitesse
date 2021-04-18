@@ -259,29 +259,29 @@
 
 <script lang="ts">
 import { defineComponent, onMounted } from 'vue'
-import { auth } from '../composable/auth'
+import { useAuthContext } from '../composable/auth'
 import { useState } from '../composable/state'
 
 export default defineComponent({
   setup() {
-    const { initialize, authenticate, signout } = auth()
-    const [loggedIn, setLoggedIn] = useState(auth.isAuthenticated)
+    const { initialize, authenticate, signout } = useAuthContext()
+    const [loggedIn, setLoggedIn] = useState(useAuthContext.isAuthenticated)
     const [user, setUser] = useState(null)
 
     const init = () => {
-      auth.initialize((user) => {
+      initialize((user) => {
         setLoggedIn(!!user)
       })
     }
 
     const login = () => {
-      auth.authenticate((user) => {
+      authenticate((user) => {
         setLoggedIn(!!user)
         setUser(user)
       })
     }
     const logout = () => {
-      auth.signout(() => {
+      signout(() => {
         setLoggedIn(false)
         setUser(null)
       })
@@ -292,7 +292,7 @@ export default defineComponent({
     })
 
     return {
-      initialize, authenticate, signout,
+      init, login, logout, loggedIn, setLoggedIn, user, setUser,
     }
   },
   data() {
