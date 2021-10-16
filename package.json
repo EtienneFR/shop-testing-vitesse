@@ -34,7 +34,7 @@
     "markdown-it-prism": "^2.2.1",
     "pnpm": "^5.18.10",
     "typescript": "^4.4.4",
-    "unplugin-icons": "^0.12.15",
+    "unplugin-icons": "^0.12.16",
     "unplugin-vue-components": "^0.15.6",
     "vite": "^2.6.7",
     "vite-plugin-md": "^0.5.1",
