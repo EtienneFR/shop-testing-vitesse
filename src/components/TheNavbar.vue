@@ -321,13 +321,6 @@ export default defineComponent({
           logged: true,
           unLogged: true,
         },
-        {
-          id: 3,
-          to: '#',
-          text: 'Discount',
-          logged: true,
-          unLogged: true,
-        },
       ],
     }
   },

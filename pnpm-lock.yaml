@@ -13,7 +13,7 @@ specifiers:
   '@vue/compiler-sfc': ^3.2.26
   '@vue/server-renderer': ^3.2.26
   '@vueuse/core': ^7.3.0
-  '@vueuse/head': ^0.7.4
+  '@vueuse/head': ^0.5.1
   axios: ^0.24.0
   cross-env: ^7.0.3
   eslint: ^7.32.0
@@ -40,7 +40,7 @@ specifiers:
 
 dependencies:
   '@vueuse/core': 7.3.0_vue@3.2.26
-  '@vueuse/head': 0.7.4_vue@3.2.26
+  '@vueuse/head': 0.5.1_vue@3.2.26
   axios: 0.24.0
   lodash: 4.17.21
   netlify-identity-widget: 1.9.2
@@ -76,7 +76,7 @@ devDependencies:
   vite-plugin-pwa: 0.11.11_vite@2.7.2
   vite-plugin-vue-layouts: 0.2.2_vite@2.7.2
   vite-plugin-windicss: 0.4.13_vite@2.7.2
-  vite-ssg: 0.16.2_507174fb0df3406a3794df8736c5df06
+  vite-ssg: 0.16.2_f36f7d8b100f5d2d59d3f64f6b10bfcd
 
 packages:
 
@@ -1802,8 +1802,8 @@ packages:
       vue-demi: 0.12.1_vue@3.2.26
     dev: false
 
-  /@vueuse/head/0.7.4_vue@3.2.26:
-    resolution: {integrity: sha512-cmps+wrdgL77V72vtjU6kaAunkG6GhswaMIQoh7Twc52ql4/p7i1Amd31LqnnvNF/bfuvzcXgYvsH8I7kimZmA==}
+  /@vueuse/head/0.5.1_vue@3.2.26:
+    resolution: {integrity: sha512-xt6qgtItb4z/7vp664opQc0c2+ZoU9itMfvpmg4+h0uJcEnhl7LYxO4V+G8H7EVki7SyXDIFMfoCiCFaJrArmg==}
     peerDependencies:
       vue: '>=3'
     dependencies:
@@ -5194,7 +5194,7 @@ packages:
       windicss: 2.5.14
     dev: true
 
-  /vite-ssg/0.16.2_507174fb0df3406a3794df8736c5df06:
+  /vite-ssg/0.16.2_f36f7d8b100f5d2d59d3f64f6b10bfcd:
     resolution: {integrity: sha512-paoBbRdaKBznYf+aTqN2Ltf5dQiBgUKwM2uvwjmPsuPQbVcznzceb13cpoG4WXxlaW2EvPns30NRIM+U6RZU3w==}
     engines: {node: '>=14.0.0'}
     hasBin: true
@@ -5208,7 +5208,7 @@ packages:
       critters:
         optional: true
     dependencies:
-      '@vueuse/head': 0.7.4_vue@3.2.26
+      '@vueuse/head': 0.5.1_vue@3.2.26
       chalk: 4.1.2
       fs-extra: 10.0.0
       html-minifier: 4.0.0
