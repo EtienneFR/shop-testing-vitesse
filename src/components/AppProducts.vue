@@ -47,7 +47,7 @@
 </template>
 
 <script lang="ts">
-import { defineComponent } from 'vue'
+import { defineComponent, ref, watch } from 'vue'
 import axios from 'axios'
 import _ from 'lodash'
 
@@ -62,48 +62,46 @@ export default defineComponent({
       default: '',
     },
   },
-  data() {
-    return {
-      info: null,
-      loading: true,
-      errored: false,
-      query: '',
-      debouncedGetQuery: null,
-      waiting: 'Type query to search products!',
-    }
-  },
-  watch: {
-    query(newQuery, oldQuery) {
-      this.loading = true
-      this.waiting = 'Waiting...'
-      this.debouncedGetQuery()
-    },
-  },
-  created() {
-    this.debouncedGetQuery = _.debounce(this.searchProducts, 500)
-  },
-  methods: {
-    searchProducts() {
-      if (this.query === '') {
-        this.info = null
-        this.loading = true
-        this.waiting = 'Type query to search products!'
+
+  setup(props) {
+    const info = ref(null)
+    const loading = ref(true)
+    const errored = ref(false)
+    const query = ref('')
+    const debouncedGetQuery = _.debounce(searchProducts, 500)
+    const waiting = ref('Type query to search products!')
+
+    function searchProducts() {
+      if (query.value === '') {
+        info.value = null
+        loading.value = true
+        waiting.value = 'Type query to search products!'
         return
       }
       axios
         .get(`/.netlify/functions/search-api?&${new URLSearchParams({
-          query: this.query,
+          query: query.value,
         })}`)
         .then((response) => {
-          this.info = response.data
-          this.errored = false
+          info.value = response.data
+          errored.value = false
         })
         .catch((error) => {
           console.log(error)
-          this.errored = true
+          errored.value = true
         })
-        .finally(() => this.loading = false)
-    },
+        .finally(() => loading.value = false)
+    }
+
+    watch(query, (newQuery, oldQuery) => {
+      loading.value = true
+      waiting.value = 'Waiting...'
+      debouncedGetQuery()
+    })
+
+    return {
+      info, loading, errored, query, debouncedGetQuery, waiting,
+    }
   },
 })
 </script>
