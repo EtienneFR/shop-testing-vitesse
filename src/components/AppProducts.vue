@@ -46,62 +46,43 @@
   </section>
 </template>
 
-<script lang="ts">
+<script lang="ts" setup>
 import { defineComponent, ref, watch } from 'vue'
 import axios from 'axios'
 import _ from 'lodash'
 
-export default defineComponent({
-  props: {
-    source: {
-      type: String,
-      default: '#',
-    },
-    description: {
-      type: String,
-      default: '',
-    },
-  },
+const info = ref(null)
+const loading = ref(true)
+const errored = ref(false)
+const query = ref('')
+const debouncedGetQuery = _.debounce(searchProducts, 500)
+const waiting = ref('Type query to search products!')
 
-  setup(props) {
-    const info = ref(null)
-    const loading = ref(true)
-    const errored = ref(false)
-    const query = ref('')
-    const debouncedGetQuery = _.debounce(searchProducts, 500)
-    const waiting = ref('Type query to search products!')
-
-    function searchProducts() {
-      if (query.value === '') {
-        info.value = null
-        loading.value = true
-        waiting.value = 'Type query to search products!'
-        return
-      }
-      axios
-        .get(`/.netlify/functions/search-api?&${new URLSearchParams({
-          query: query.value,
-        })}`)
-        .then((response) => {
-          info.value = response.data
-          errored.value = false
-        })
-        .catch((error) => {
-          console.log(error)
-          errored.value = true
-        })
-        .finally(() => loading.value = false)
-    }
-
-    watch(query, (newQuery, oldQuery) => {
-      loading.value = true
-      waiting.value = 'Waiting...'
-      debouncedGetQuery()
+function searchProducts() {
+  if (query.value === '') {
+    info.value = null
+    loading.value = true
+    waiting.value = 'Type query to search products!'
+    return
+  }
+  axios
+    .get(`/.netlify/functions/search-api?&${new URLSearchParams({
+      query: query.value,
+    })}`)
+    .then((response) => {
+      info.value = response.data
+      errored.value = false
     })
+    .catch((error) => {
+      console.log(error)
+      errored.value = true
+    })
+    .finally(() => loading.value = false)
+}
 
-    return {
-      info, loading, errored, query, debouncedGetQuery, waiting,
-    }
-  },
+watch(query, (newQuery, oldQuery) => {
+  loading.value = true
+  waiting.value = 'Waiting...'
+  debouncedGetQuery()
 })
 </script>
