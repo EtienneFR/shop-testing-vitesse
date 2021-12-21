@@ -96,6 +96,7 @@ export default defineComponent({
         })}`)
         .then((response) => {
           this.info = response.data
+          this.errored = false
         })
         .catch((error) => {
           console.log(error)

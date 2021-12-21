@@ -1,25 +1,24 @@
 /* eslint-disable @typescript-eslint/no-var-requires */
 const { URL } = require('url')
 const fetch = require('node-fetch')
+const urlcat = require('urlcat').default
 
 exports.handler = async(event, context) => {
   const query = event.queryStringParameters.query
-  const isAllowedApi = new URL(`https://neutrinoapi.net/bad-word-filter?${new URLSearchParams({
-    content: `${query}`,
-  })}`)
+  const API_URL = 'https://neutrinoapi.net/'
+  const requestUrl = urlcat(API_URL, 'bad-word-filter', { content: query })
 
-  const searchApi = new URL(`https://api.unsplash.com/search/photos?&orientation=landscape&${new URLSearchParams({
-    query: `${query}`,
-  })}`)
-
-  const isBad = await fetch(isAllowedApi, { headers: { 'api-key': process.env.APIKEY, 'user-id': process.env.USERID } })
+  const isBad = await fetch(requestUrl, { headers: { 'api-key': process.env.APIKEY, 'user-id': process.env.USERID } })
     .then(response => response.json())
     .then(data => data['is-bad'])
   const isDisallowedQuery = isBad === true
   const isAllowedQuery = isDisallowedQuery === false
 
   if (isAllowedQuery === true) {
-    return fetch(searchApi, { headers: { Authorization: process.env.TOKEN } })
+    const API_URL = 'https://api.unsplash.com/'
+    const requestUrl = urlcat(API_URL, 'search/photos', { orientation: 'landscape', query })
+
+    return fetch(requestUrl, { headers: { Authorization: process.env.TOKEN } })
       .then(response => response.json())
       .then(data => ({
         statusCode: 200,

@@ -13,6 +13,7 @@
     "node-fetch": "^2.6.6",
     "nprogress": "^0.2.0",
     "prism-theme-vars": "^0.2.2",
+    "urlcat": "^2.0.4",
     "vue": "^3.2.26",
     "vue-i18n": "^9.1.9",
     "vue-router": "^4.0.12"

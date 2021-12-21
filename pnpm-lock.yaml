@@ -27,6 +27,7 @@ specifiers:
   typescript: ^4.5.4
   unplugin-icons: ^0.12.23
   unplugin-vue-components: ^0.15.6
+  urlcat: ^2.0.4
   vite: ^2.7.2
   vite-plugin-md: ^0.5.1
   vite-plugin-pages: ^0.4.9
@@ -47,6 +48,7 @@ dependencies:
   node-fetch: 2.6.6
   nprogress: 0.2.0
   prism-theme-vars: 0.2.2
+  urlcat: 2.0.4
   vue: 3.2.26
   vue-i18n: 9.1.9_vue@3.2.26
   vue-router: 4.0.12_vue@3.2.26
@@ -5107,6 +5109,10 @@ packages:
     dependencies:
       punycode: 2.1.1
     dev: true
+
+  /urlcat/2.0.4:
+    resolution: {integrity: sha512-12c4Vi40DHVdZ/8mOLjZjp0asCzM6hi8Gj116fpImRP1FN4gBMCtMi9XhLNOmre/FEQYNqHbZmX8iyYAtIcy8Q==}
+    dev: false
 
   /v8-compile-cache/2.3.0:
     resolution: {integrity: sha512-l8lCEmLcLYZh4nbunNZvQCJc5pv7+RCwa8q/LdUx8u7lsWvPDKmpodJAJNwkAhJC//dFY48KuIEmjtd4RViDrA==}
