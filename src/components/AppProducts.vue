@@ -47,9 +47,10 @@
 </template>
 
 <script lang="ts" setup>
-import { defineComponent, ref, watch } from 'vue'
+import { ref, watch } from 'vue'
 import axios from 'axios'
 import _ from 'lodash'
+import urlcat from 'urlcat'
 
 const info = ref(null)
 const loading = ref(true)
@@ -59,6 +60,9 @@ const debouncedGetQuery = _.debounce(searchProducts, 500)
 const waiting = ref('Type query to search products!')
 
 function searchProducts() {
+  const API_URL = '/.netlify/functions/'
+  const requestUrl = urlcat(API_URL, 'search-api', { query: query.value })
+
   if (query.value === '') {
     info.value = null
     loading.value = true
@@ -66,9 +70,7 @@ function searchProducts() {
     return
   }
   axios
-    .get(`/.netlify/functions/search-api?&${new URLSearchParams({
-      query: query.value,
-    })}`)
+    .get(requestUrl)
     .then((response) => {
       info.value = response.data
       errored.value = false
