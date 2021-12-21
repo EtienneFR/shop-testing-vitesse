@@ -7,6 +7,7 @@
   "dependencies": {
     "@vueuse/core": "^7.3.0",
     "@vueuse/head": "^0.5.1",
+    "@xstate/vue": "^0.8.1",
     "axios": "^0.24.0",
     "lodash": "^4.17.21",
     "netlify-identity-widget": "^1.9.2",
@@ -16,7 +17,8 @@
     "urlcat": "^2.0.4",
     "vue": "^3.2.26",
     "vue-i18n": "^9.1.9",
-    "vue-router": "^4.0.12"
+    "vue-router": "^4.0.12",
+    "xstate": "^4.26.1"
   },
   "devDependencies": {
     "@antfu/eslint-config": "^0.4.3",

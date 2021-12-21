@@ -14,6 +14,7 @@ specifiers:
   '@vue/server-renderer': ^3.2.26
   '@vueuse/core': ^7.3.0
   '@vueuse/head': ^0.5.1
+  '@xstate/vue': ^0.8.1
   axios: ^0.24.0
   cross-env: ^7.0.3
   eslint: ^7.32.0
@@ -38,10 +39,12 @@ specifiers:
   vue: ^3.2.26
   vue-i18n: ^9.1.9
   vue-router: ^4.0.12
+  xstate: ^4.26.1
 
 dependencies:
   '@vueuse/core': 7.3.0_vue@3.2.26
   '@vueuse/head': 0.5.1_vue@3.2.26
+  '@xstate/vue': 0.8.1_vue@3.2.26+xstate@4.26.1
   axios: 0.24.0
   lodash: 4.17.21
   netlify-identity-widget: 1.9.2
@@ -52,6 +55,7 @@ dependencies:
   vue: 3.2.26
   vue-i18n: 9.1.9_vue@3.2.26
   vue-router: 4.0.12_vue@3.2.26
+  xstate: 4.26.1
 
 devDependencies:
   '@antfu/eslint-config': 0.4.3_eslint@7.32.0+typescript@4.5.4
@@ -1836,6 +1840,22 @@ packages:
       micromatch: 4.0.4
       windicss: 2.5.14
     dev: true
+
+  /@xstate/vue/0.8.1_vue@3.2.26+xstate@4.26.1:
+    resolution: {integrity: sha512-m4Ejd08eUHzlTD7P6aGscwpjeHRXVZQ5iVyv5RxYi5WKoFqOMeurO2dxvI8QDfTxF27NqODj30LWYsMzZZ9lsg==}
+    peerDependencies:
+      '@xstate/fsm': ^1.0.0
+      vue: ^3.0.0
+      xstate: ^4.7.8
+    peerDependenciesMeta:
+      '@xstate/fsm':
+        optional: true
+      xstate:
+        optional: true
+    dependencies:
+      vue: 3.2.26
+      xstate: 4.26.1
+    dev: false
 
   /abab/2.0.5:
     resolution: {integrity: sha512-9IK9EadsbHo6jLWIpxpR6pL0sazTXV6+SQv25ZB+F7Bj9mJNaOc4nCRabwd5M/JwmUa8idz6Eci6eKfJryPs6Q==}
@@ -5635,6 +5655,10 @@ packages:
   /xmlchars/2.2.0:
     resolution: {integrity: sha512-JZnDKK8B0RCDw84FNdDAIpZK+JuJw+s7Lz8nksI7SIuU3UXJJslUthsi+uWBUYOwPFwW7W7PRLRfUKpxjtjFCw==}
     dev: true
+
+  /xstate/4.26.1:
+    resolution: {integrity: sha512-JLofAEnN26l/1vbODgsDa+Phqa61PwDlxWu8+2pK+YbXf+y9pQSDLRvcYH2H1kkeUBA5fGp+xFL/zfE8jNMw4g==}
+    dev: false
 
   /y18n/5.0.8:
     resolution: {integrity: sha512-0pfFzegeDWJHJIAmTLRP2DwHjdF5s7jo9tuztdQxAhINCdvS+3nGINqPd00AphqJR/0LhANUS6/+7SCb98YOfA==}
