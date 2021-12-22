@@ -22,7 +22,7 @@
     </div>
   </div>
 
-  <section v-if="errored" class="flex items-center justify-center p-4">
+  <section v-if="state.value === 'erroredData'" class="flex items-center justify-center p-4">
     <p>We are sorry. We are unable to retrieve this information at this time. Please retry later.</p>
   </section>
 
@@ -51,6 +51,8 @@ import { ref, watch } from 'vue'
 import axios from 'axios'
 import _ from 'lodash'
 import urlcat from 'urlcat'
+import { useMachine } from '@xstate/vue'
+import { searchMachine } from '../machines/searchMachine'
 
 const products = ref(null)
 const loading = ref(true)
@@ -59,32 +61,40 @@ const query = ref('')
 const debouncedGetQuery = _.debounce(searchProducts, 500)
 const waiting = ref('Type query to search products!')
 
-function searchProducts() {
-  const API_URL = '/.netlify/functions/'
-  const requestUrl = urlcat(API_URL, 'search-api', { query: query.value })
+const API_URL = '/.netlify/functions/'
+const requestUrl = urlcat(API_URL, 'search-api', { query: query.value })
 
+const props = {
+  onResolve: {
+    type: Function,
+    default: () => {},
+  },
+}
+
+const machine = useMachine(searchMachine, {
+
+  services: {
+    getImage: (_context, event) =>
+      axios
+        .get(requestUrl)
+        .then((response) => {
+          response.data.json()
+        }),
+  },
+})
+
+function searchProducts() {
   if (query.value === '') {
     products.value = null
     loading.value = true
     waiting.value = 'Type query to search products!'
-    return
   }
-  axios
-    .get(requestUrl)
-    .then((response) => {
-      products.value = response.data
-      errored.value = false
-    })
-    .catch((error) => {
-      console.log(error)
-      errored.value = true
-    })
-    .finally(() => loading.value = false)
 }
 
 watch(query, (newQuery, oldQuery) => {
   loading.value = true
   waiting.value = 'Waiting...'
   debouncedGetQuery()
+  machine.send('MODIFY_QUERY')
 })
 </script>

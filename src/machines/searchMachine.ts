@@ -2,7 +2,7 @@ import { assign, createMachine } from 'xstate'
 
 export const searchMachine = createMachine({
   context: {
-    query: '',
+    data: undefined,
     images: [],
   },
   id: 'search',
@@ -22,11 +22,11 @@ export const searchMachine = createMachine({
         src: 'fetchImages',
         onDone: {
           target: 'fetchedData',
-          actions: assign({ data: (context, event) => event.data }),
+          actions: assign({ data: (_context, event) => event.data }),
         },
         onError: {
           target: 'erroredData',
-          actions: assign({ error: (context, event) => event.data }),
+          actions: assign({ error: (_context, event) => event.data }),
         },
       },
     },
