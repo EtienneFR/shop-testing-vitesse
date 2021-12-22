@@ -32,7 +32,7 @@
         {{ waiting }}
       </div>
       <div v-else class="flex flex-wrap justify-center">
-        <div v-for="product in info" :key="product.description" class="w-auto px-1 m-5 my-1 lg:w-1/3 lg:w-auto md:w-auto lg:my-4 lg:px-4">
+        <div v-for="product in products" :key="product.description" class="w-auto px-1 m-5 my-1 lg:w-1/3 lg:w-auto md:w-auto lg:my-4 lg:px-4">
           <div class="overflow-hidden rounded-lg shadow-lg">
             <img
               alt="Placeholder"
@@ -52,7 +52,7 @@ import axios from 'axios'
 import _ from 'lodash'
 import urlcat from 'urlcat'
 
-const info = ref(null)
+const products = ref(null)
 const loading = ref(true)
 const errored = ref(false)
 const query = ref('')
@@ -64,7 +64,7 @@ function searchProducts() {
   const requestUrl = urlcat(API_URL, 'search-api', { query: query.value })
 
   if (query.value === '') {
-    info.value = null
+    products.value = null
     loading.value = true
     waiting.value = 'Type query to search products!'
     return
@@ -72,7 +72,7 @@ function searchProducts() {
   axios
     .get(requestUrl)
     .then((response) => {
-      info.value = response.data
+      products.value = response.data
       errored.value = false
     })
     .catch((error) => {
