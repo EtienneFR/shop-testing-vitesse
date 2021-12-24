@@ -9,7 +9,6 @@
     "@vueuse/head": "^0.5.1",
     "@xstate/vue": "^0.8.1",
     "axios": "^0.24.0",
-    "lodash": "^4.17.21",
     "netlify-identity-widget": "^1.9.2",
     "node-fetch": "^2.6.6",
     "nprogress": "^0.2.0",
