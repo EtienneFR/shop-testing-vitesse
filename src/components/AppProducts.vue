@@ -23,41 +23,37 @@
     </div>
   </div>
 
-  <p v-if="state.matches('waiting')">
-    Type query to search products!
-  </p>
+  <div class="flex items-center justify-center p-4">
+    <section v-if="state.matches('waiting')">
+      <p>Type query to search products!</p>
+    </section>
 
-  <section v-else-if="state.matches('erroredData')" class="flex items-center justify-center p-4">
-    <p>We are sorry. We are unable to retrieve this information at this time. Please retry later.</p>
-  </section>
+    <section v-else-if="state.matches('erroredData')">
+      <p>We are sorry. We are unable to retrieve this information at this time. Please retry later.</p>
+    </section>
 
-  <section v-else-if="state.matches('fetchingData') || state.matches('debouncing')">
-    <div class="flex items-center justify-center">
-      <div>
-        Waiting...
-      </div>
-    </div>
-  </section>
+    <section v-else-if="state.matches('fetchingData') || state.matches('debouncing')">
+      <p>Waiting...</p>
+    </section>
 
-  <section v-else-if="(state.matches('fetchedData') && images.length === 0)">
-    No result found. Type a different query.
-  </section>
+    <section v-else-if="(state.matches('fetchedData') && images.length === 0)">
+      No result found. Type a different query.
+    </section>
 
-  <section v-else-if="state.matches('fetchedData')">
-    <div class="flex items-center justify-center">
+    <section v-else-if="state.matches('fetchedData')">
       <div class="flex flex-wrap justify-center">
         <div v-for="product in images" :key="product.description" class="w-auto px-1 m-5 my-1 lg:w-1/3 lg:w-auto md:w-auto lg:my-4 lg:px-4">
           <div class="overflow-hidden rounded-lg shadow-lg">
             <img
-              alt="Placeholder"
+              :alt="product.description || 'No image available'"
               class="block object-cover"
               :src="product.small"
             >
           </div>
         </div>
       </div>
-    </div>
-  </section>
+    </section>
+  </div>
 </template>
 
 <script lang="ts" setup>
