@@ -12,27 +12,41 @@
         </div>
         <input
           id="search"
-          v-model="query"
           class="flex justify-start w-full px-4 py-4 leading-tight text-gray-700 rounded-l-full sm:w-full focus:outline-none "
           type="text"
           aria-label="search"
           placeholder="Search"
+          :value="searchQuery"
+          @input="send({ type: 'MODIFY_QUERY', searchQuery: $event.target.value })"
         >
       </div>
     </div>
   </div>
 
-  <section v-if="state.value === 'erroredData'" class="flex items-center justify-center p-4">
+  <p v-if="state.matches('waiting')">
+    Type query to search products!
+  </p>
+
+  <section v-else-if="state.matches('erroredData')" class="flex items-center justify-center p-4">
     <p>We are sorry. We are unable to retrieve this information at this time. Please retry later.</p>
   </section>
 
-  <section v-else>
+  <section v-else-if="state.matches('fetchingData') || state.matches('debouncing')">
     <div class="flex items-center justify-center">
-      <div v-if="loading">
-        {{ waiting }}
+      <div>
+        Waiting...
       </div>
-      <div v-else class="flex flex-wrap justify-center">
-        <div v-for="product in products" :key="product.description" class="w-auto px-1 m-5 my-1 lg:w-1/3 lg:w-auto md:w-auto lg:my-4 lg:px-4">
+    </div>
+  </section>
+
+  <section v-else-if="(state.matches('fetchedData') && images.length === 0)">
+    No result found. Type a different query.
+  </section>
+
+  <section v-else-if="state.matches('fetchedData')">
+    <div class="flex items-center justify-center">
+      <div class="flex flex-wrap justify-center">
+        <div v-for="product in images" :key="product.description" class="w-auto px-1 m-5 my-1 lg:w-1/3 lg:w-auto md:w-auto lg:my-4 lg:px-4">
           <div class="overflow-hidden rounded-lg shadow-lg">
             <img
               alt="Placeholder"
@@ -47,54 +61,36 @@
 </template>
 
 <script lang="ts" setup>
-import { ref, watch } from 'vue'
+import { computed } from 'vue'
 import axios from 'axios'
-import _ from 'lodash'
 import urlcat from 'urlcat'
 import { useMachine } from '@xstate/vue'
-import { searchMachine } from '../machines/searchMachine'
+import { searchMachine, Image } from '../machines/searchMachine'
 
-const products = ref(null)
-const loading = ref(true)
-const errored = ref(false)
-const query = ref('')
-const debouncedGetQuery = _.debounce(searchProducts, 500)
-const waiting = ref('Type query to search products!')
-
-const API_URL = '/.netlify/functions/'
-const requestUrl = urlcat(API_URL, 'search-api', { query: query.value })
-
-const props = {
-  onResolve: {
-    type: Function,
-    default: () => {},
-  },
-}
-
-const machine = useMachine(searchMachine, {
-
+const { state, send } = useMachine(searchMachine, {
   services: {
-    getImage: (_context, event) =>
-      axios
-        .get(requestUrl)
-        .then((response) => {
-          response.data.json()
-        }),
+    fetchImages: ({ searchQuery }) => async(sendBack) => {
+      try {
+        const API_URL = '/.netlify/functions/'
+        const requestUrl = urlcat(API_URL, 'search-api', { query: searchQuery })
+
+        const response = await axios.get(requestUrl)
+        const images = response.data as Image[]
+
+        sendBack({
+          type: 'RECEIVED_IMAGES',
+          images,
+        })
+      }
+      catch (err) {
+        sendBack({
+          type: 'ERRORED_FETCHING_IMAGES',
+        })
+      }
+    },
   },
 })
 
-function searchProducts() {
-  if (query.value === '') {
-    products.value = null
-    loading.value = true
-    waiting.value = 'Type query to search products!'
-  }
-}
-
-watch(query, (newQuery, oldQuery) => {
-  loading.value = true
-  waiting.value = 'Waiting...'
-  debouncedGetQuery()
-  machine.send('MODIFY_QUERY')
-})
+const searchQuery = computed(() => state.value.context.searchQuery)
+const images = computed(() => state.value.context.images)
 </script>

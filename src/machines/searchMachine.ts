@@ -1,40 +1,82 @@
-import { assign, createMachine } from 'xstate'
+import { createModel } from 'xstate/lib/model'
 
-export const searchMachine = createMachine({
-  context: {
-    data: undefined,
-    images: [],
+export interface Image {
+  description: string
+  small: string
+  raw: string
+}
+
+const searchModel = createModel({
+  searchQuery: '',
+  images: [] as Image[],
+}, {
+  events: {
+    MODIFY_QUERY: (searchQuery: string) => ({ searchQuery }),
+
+    RECEIVED_IMAGES: (images: Image[]) => ({ images }),
+    ERRORED_FETCHING_IMAGES: () => ({}),
   },
+})
+
+export const searchMachine = searchModel.createMachine({
   id: 'search',
+
   initial: 'waiting',
+
   states: {
-    waiting: {
-      on: { MODIFY_QUERY: 'debouncing' },
-    },
+    waiting: {},
+
     debouncing: {
       after: {
         500: { target: 'fetchingData' },
       },
     },
+
     fetchingData: {
       invoke: {
         id: 'getImage',
+
         src: 'fetchImages',
-        onDone: {
+      },
+
+      on: {
+        RECEIVED_IMAGES: {
           target: 'fetchedData',
-          actions: assign({ data: (_context, event) => event.data }),
+
+          actions: searchModel.assign({
+            images: (_context, event) => event.images,
+          }),
         },
-        onError: {
+
+        ERRORED_FETCHING_IMAGES: {
           target: 'erroredData',
-          actions: assign({ error: (_context, event) => event.data }),
         },
       },
     },
-    fetchedData: {
-      on: { MODIFY_QUERY: 'debouncing' },
-    },
-    erroredData: {
-      on: { MODIFY_QUERY: 'debouncing' },
-    },
+
+    fetchedData: {},
+
+    erroredData: {},
+  },
+  on: {
+    MODIFY_QUERY: [
+      {
+        cond: (_context, event) => event.searchQuery === '',
+
+        target: 'waiting',
+
+        actions: searchModel.assign({
+          searchQuery: '',
+        }),
+      },
+
+      {
+        target: 'debouncing',
+
+        actions: searchModel.assign({
+          searchQuery: (_context, event) => event.searchQuery,
+        }),
+      },
+    ],
   },
 })
