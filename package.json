@@ -5,7 +5,7 @@
     "build": "cross-env NODE_ENV=production vite-ssg build"
   },
   "dependencies": {
-    "@vueuse/core": "^7.4.3",
+    "@vueuse/core": "^7.5.1",
     "@vueuse/head": "^0.5.1",
     "@xstate/vue": "^0.8.1",
     "axios": "^0.24.0",
@@ -21,7 +21,7 @@
   },
   "devDependencies": {
     "@antfu/eslint-config": "^0.4.3",
-    "@iconify/json": "^1.1.449",
+    "@iconify/json": "^1.1.450",
     "@intlify/vite-plugin-vue-i18n": "^1.0.0-beta.17",
     "@types/lodash": "^4.14.178",
     "@types/netlify-identity-widget": "^1.9.2",
