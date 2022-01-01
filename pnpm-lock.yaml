@@ -2101,7 +2101,7 @@ packages:
     hasBin: true
     dependencies:
       caniuse-lite: 1.0.30001294
-      electron-to-chromium: 1.4.30
+      electron-to-chromium: 1.4.31
       escalade: 3.1.1
       node-releases: 2.0.1
       picocolors: 1.0.0
@@ -2443,8 +2443,8 @@ packages:
       jake: 10.8.2
     dev: true
 
-  /electron-to-chromium/1.4.30:
-    resolution: {integrity: sha512-609z9sIMxDHg+TcR/VB3MXwH+uwtrYyeAwWc/orhnr90ixs6WVGSrt85CDLGUdNnLqCA7liv426V20EecjvflQ==}
+  /electron-to-chromium/1.4.31:
+    resolution: {integrity: sha512-t3XVQtk+Frkv6aTD4RRk0OqosU+VLe1dQFW83MDer78ZD6a52frgXuYOIsLYTQiH2Lm+JB2OKYcn7zrX+YGAiQ==}
     dev: true
 
   /emoji-regex/8.0.0:
@@ -5172,7 +5172,7 @@ packages:
       vite: 2.7.10
       vue: 3.2.26
       vue-router: 4.0.12_vue@3.2.26
-      yaml: 2.0.0-9
+      yaml: 2.0.0-10
     transitivePeerDependencies:
       - supports-color
     dev: true
@@ -5691,8 +5691,8 @@ packages:
     engines: {node: '>= 6'}
     dev: true
 
-  /yaml/2.0.0-9:
-    resolution: {integrity: sha512-Bf2KowHjyVkIIiGMt7+fbhmlvKOaE8DWuD07bnL4+FQ9sPmEl/5IzGpBpoxPqOaHuyasBjJhyXDcISpJWfhCGw==}
+  /yaml/2.0.0-10:
+    resolution: {integrity: sha512-FHV8s5ODFFQXX/enJEU2EkanNl1UDBUz8oa4k5Qo/sR+Iq7VmhCDkRMb0/mjJCNeAWQ31W8WV6PYStDE4d9EIw==}
     engines: {node: '>= 12'}
     dev: true
 
