@@ -19,6 +19,8 @@ const searchModel = createModel({
 })
 
 export const searchMachine = searchModel.createMachine({
+  tsTypes: {} as import('./searchMachine.typegen').Typegen0,
+
   id: 'search',
 
   initial: 'waiting',
@@ -43,9 +45,7 @@ export const searchMachine = searchModel.createMachine({
         RECEIVED_IMAGES: {
           target: 'fetchedData',
 
-          actions: searchModel.assign({
-            images: (_context, event) => event.images,
-          }),
+          actions: 'assignImages',
         },
 
         ERRORED_FETCHING_IMAGES: {
@@ -61,22 +61,25 @@ export const searchMachine = searchModel.createMachine({
   on: {
     MODIFY_QUERY: [
       {
-        cond: (_context, event) => event.searchQuery === '',
+        cond: 'isSearchQueryEmpty',
 
         target: 'waiting',
 
-        actions: searchModel.assign({
-          searchQuery: '',
-        }),
+        actions: 'assignEmptySearchQuery',
       },
 
       {
         target: 'debouncing',
 
-        actions: searchModel.assign({
-          searchQuery: (_context, event) => event.searchQuery,
-        }),
+        actions: 'assignSearchQuery',
       },
     ],
+  },
+}, {
+  guards: { isSearchQueryEmpty: (_context, event) => event.searchQuery === '' },
+  actions: {
+    assignEmptySearchQuery: searchModel.assign({ searchQuery: '' }),
+    assignSearchQuery: searchModel.assign({ searchQuery: (_context, event) => event.searchQuery }),
+    assignImages: searchModel.assign({ images: (_context, event) => event.images }),
   },
 })
