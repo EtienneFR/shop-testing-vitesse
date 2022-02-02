@@ -23,7 +23,7 @@
     "@antfu/eslint-config": "^0.4.3",
     "@iconify/json": "^1.1.461",
     "@intlify/vite-plugin-vue-i18n": "^1.0.0-beta.17",
-    "@types/netlify-identity-widget": "^1.9.2",
+    "@types/netlify-identity-widget": "^1.9.3",
     "@types/nprogress": "^0.2.0",
     "@typescript-eslint/eslint-plugin": "^4.33.0",
     "@typescript-eslint/parser": "^4.33.0",
