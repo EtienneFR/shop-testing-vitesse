@@ -82,12 +82,11 @@ devDependencies:
 
 packages:
 
-  /@ampproject/remapping/2.0.3:
-    resolution: {integrity: sha512-DmIAguV77yFP0MGVFWknCMgSLAtsLR3VlRTteR6xgMpIfYtwaZuMvjGv5YlpiqN7S/5q87DHyuIx8oa15kiyag==}
+  /@ampproject/remapping/2.0.4:
+    resolution: {integrity: sha512-zU3pj3pf//YhaoozRTYKaL20KopXrzuZFc/8Ylc49AuV8grYKH23TTq9JJoR70F8zQbil58KjSchZTWeX+jrIQ==}
     engines: {node: '>=6.0.0'}
     dependencies:
-      '@jridgewell/sourcemap-codec': 1.4.9
-      '@jridgewell/trace-mapping': 0.2.7
+      '@jridgewell/trace-mapping': 0.3.2
     dev: true
 
   /@antfu/eslint-config-basic/0.4.3_eslint@7.32.0:
@@ -208,7 +207,7 @@ packages:
     resolution: {integrity: sha512-x/5Ea+RO5MvF9ize5DeVICJoVrNv0Mi2RnIABrZEKYvPEpldXwauPkgvYA17cKa6WpU3LoYvYbuEMFtSNFsarA==}
     engines: {node: '>=6.9.0'}
     dependencies:
-      '@ampproject/remapping': 2.0.3
+      '@ampproject/remapping': 2.0.4
       '@babel/code-frame': 7.16.7
       '@babel/generator': 7.17.0
       '@babel/helper-compilation-targets': 7.16.7_@babel+core@7.17.0
@@ -1370,8 +1369,8 @@ packages:
     resolution: {integrity: sha512-6er6wSGF3hgc1JEZqiGpg21CTCjHBYOUwqLmb2Idzkjiw6ogalGP0ZMLVutCzah+0WB4yP+Zd2oVPN8jvJ+Ftg==}
     dev: true
 
-  /@iconify/utils/1.0.22:
-    resolution: {integrity: sha512-mpfyM3sR3MSj2RERHdPBVKYB7S7ecVdSzfN5PMMit1EZdaxflJzH3MaSBQ4Iy3NAMaMcLy5yVL+G7fpoDYwjdg==}
+  /@iconify/utils/1.0.23:
+    resolution: {integrity: sha512-Ktdmpe4mkMXQAnnDUz3s6s5aY/BeVPwHC1d5IhG1bgrWVNWFQNUj8cQPMbHpNCSD9MRC5yGxm9/PGPpOWGJLAg==}
     dependencies:
       '@antfu/install-pkg': 0.1.0
       '@antfu/utils': 0.3.0
@@ -1475,15 +1474,15 @@ packages:
     engines: {node: '>=6.0.0'}
     dev: true
 
-  /@jridgewell/sourcemap-codec/1.4.9:
-    resolution: {integrity: sha512-iKsUDLGOrC5pSdVTyb8zJI/f55wItTzGtfGWiWPWTc8h2P4oucax7XOGSRq9V2aA1nwE8qMaGvwdXk3PZRtgjg==}
+  /@jridgewell/sourcemap-codec/1.4.10:
+    resolution: {integrity: sha512-Ht8wIW5v165atIX1p+JvKR5ONzUyF4Ac8DZIQ5kZs9zrb6M8SJNXpx1zn04rn65VjBMygRoMXcyYwNK0fT7bEg==}
     dev: true
 
-  /@jridgewell/trace-mapping/0.2.7:
-    resolution: {integrity: sha512-ZKfRhw6eK2vvdWqpU7DQq49+BZESqh5rmkYpNhuzkz01tapssl2sNNy6uMUIgrTtUWQDijomWJzJRCoevVrfgw==}
+  /@jridgewell/trace-mapping/0.3.2:
+    resolution: {integrity: sha512-9KzzH4kMjA2XmBRHfqG2/Vtl7s92l6uNDd0wW7frDE+EUvQFGqNXhWp0UGJjSkt3v2AYjzOZn1QO9XaTNJIt1Q==}
     dependencies:
       '@jridgewell/resolve-uri': 3.0.4
-      '@jridgewell/sourcemap-codec': 1.4.9
+      '@jridgewell/sourcemap-codec': 1.4.10
     dev: true
 
   /@nodelib/fs.scandir/2.1.5:
@@ -5089,7 +5088,7 @@ packages:
     dependencies:
       '@antfu/install-pkg': 0.1.0
       '@antfu/utils': 0.3.0
-      '@iconify/utils': 1.0.22
+      '@iconify/utils': 1.0.23
       '@vue/compiler-sfc': 3.2.29
       debug: 4.3.3
       kolorist: 1.5.1
