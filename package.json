@@ -5,7 +5,7 @@
     "build": "cross-env NODE_ENV=production vite-ssg build"
   },
   "dependencies": {
-    "@vueuse/core": "^7.6.0",
+    "@vueuse/core": "^7.6.1",
     "@vueuse/head": "^0.5.1",
     "@xstate/vue": "^0.8.2",
     "axios": "^0.24.0",
@@ -37,7 +37,7 @@
     "typescript": "^4.5.5",
     "unplugin-icons": "^0.12.23",
     "unplugin-vue-components": "^0.15.6",
-    "vite": "^2.7.13",
+    "vite": "^2.8.0",
     "vite-plugin-md": "^0.5.1",
     "vite-plugin-pages": "^0.4.9",
     "vite-plugin-pwa": "^0.11.13",
