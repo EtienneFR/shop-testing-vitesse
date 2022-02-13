@@ -5,7 +5,7 @@
     "build": "cross-env NODE_ENV=production vite-ssg build"
   },
   "dependencies": {
-    "@vueuse/core": "^7.6.1",
+    "@vueuse/core": "^7.6.2",
     "@vueuse/head": "^0.5.1",
     "@xstate/vue": "^0.8.2",
     "axios": "^0.24.0",
@@ -17,7 +17,7 @@
     "vue": "^3.2.31",
     "vue-i18n": "^9.1.9",
     "vue-router": "^4.0.12",
-    "xstate": "^4.29.0"
+    "xstate": "^4.30.0"
   },
   "devDependencies": {
     "@antfu/eslint-config": "^0.4.3",

@@ -11,7 +11,7 @@ specifiers:
   '@vitejs/plugin-vue': ^1.10.2
   '@vue/compiler-sfc': ^3.2.31
   '@vue/server-renderer': ^3.2.31
-  '@vueuse/core': ^7.6.1
+  '@vueuse/core': ^7.6.2
   '@vueuse/head': ^0.5.1
   '@xstate/vue': ^0.8.2
   axios: ^0.24.0
@@ -37,12 +37,12 @@ specifiers:
   vue: ^3.2.31
   vue-i18n: ^9.1.9
   vue-router: ^4.0.12
-  xstate: ^4.29.0
+  xstate: ^4.30.0
 
 dependencies:
-  '@vueuse/core': 7.6.1_vue@3.2.31
+  '@vueuse/core': 7.6.2_vue@3.2.31
   '@vueuse/head': 0.5.1_vue@3.2.31
-  '@xstate/vue': 0.8.2_vue@3.2.31+xstate@4.29.0
+  '@xstate/vue': 0.8.2_vue@3.2.31+xstate@4.30.0
   axios: 0.24.0
   netlify-identity-widget: 1.9.2
   node-fetch: 2.6.7
@@ -52,7 +52,7 @@ dependencies:
   vue: 3.2.31
   vue-i18n: 9.1.9_vue@3.2.31
   vue-router: 4.0.12_vue@3.2.31
-  xstate: 4.29.0
+  xstate: 4.30.0
 
 devDependencies:
   '@antfu/eslint-config': 0.4.3_eslint@7.32.0+typescript@4.5.5
@@ -1340,7 +1340,7 @@ packages:
       ignore: 4.0.6
       import-fresh: 3.3.0
       js-yaml: 3.14.1
-      minimatch: 3.0.5
+      minimatch: 3.1.1
       strip-json-comments: 3.1.1
     transitivePeerDependencies:
       - supports-color
@@ -1352,7 +1352,7 @@ packages:
     dependencies:
       '@humanwhocodes/object-schema': 1.2.1
       debug: 4.3.3
-      minimatch: 3.0.5
+      minimatch: 3.1.1
     transitivePeerDependencies:
       - supports-color
     dev: true
@@ -1815,8 +1815,8 @@ packages:
   /@vue/shared/3.2.31:
     resolution: {integrity: sha512-ymN2pj6zEjiKJZbrf98UM2pfDd6F2H7ksKw7NDt/ZZ1fh5Ei39X5tABugtT03ZRlWd9imccoK0hE8hpjpU7irQ==}
 
-  /@vueuse/core/7.6.1_vue@3.2.31:
-    resolution: {integrity: sha512-492y7R9HRu6TXzcGBMVG5qg5o9CHjrWLfOHh+TEknJeLe3LIYHsIBi1IlUN5s/yP3OHlBynjrzMMUm4gEyBmQg==}
+  /@vueuse/core/7.6.2_vue@3.2.31:
+    resolution: {integrity: sha512-bjAbXJVJO6aElMaZtDz2B70C0L6jFk/jGVqJxWZS5huffxA6dW5DN6tQQJwzOnx9B9rDhePHJIFKsix0qZIH2Q==}
     peerDependencies:
       '@vue/composition-api': ^1.1.0
       vue: ^2.6.0 || ^3.2.0
@@ -1826,7 +1826,7 @@ packages:
       vue:
         optional: true
     dependencies:
-      '@vueuse/shared': 7.6.1_vue@3.2.31
+      '@vueuse/shared': 7.6.2_vue@3.2.31
       vue: 3.2.31
       vue-demi: 0.12.1_vue@3.2.31
     dev: false
@@ -1839,8 +1839,8 @@ packages:
       vue: 3.2.31
     dev: false
 
-  /@vueuse/shared/7.6.1_vue@3.2.31:
-    resolution: {integrity: sha512-VhURBjuyELYLW94TLqwyM+tUZ0uyWAOjp8zDnJts5wwyHZlGt/yabLbuEl70cKmt0zR9psVyAyHC+LTgRrA1Zw==}
+  /@vueuse/shared/7.6.2_vue@3.2.31:
+    resolution: {integrity: sha512-ThDld4Mx501tahRuHV6qJGkwCr17GknZrOzlD02Na9qJcH7Pq0quNTLx5cNDou7b1CKNvE3BXi2w/hz9KuPNTQ==}
     peerDependencies:
       '@vue/composition-api': ^1.1.0
       vue: ^2.6.0 || ^3.2.0
@@ -1864,7 +1864,7 @@ packages:
       windicss: 2.5.14
     dev: true
 
-  /@xstate/vue/0.8.2_vue@3.2.31+xstate@4.29.0:
+  /@xstate/vue/0.8.2_vue@3.2.31+xstate@4.30.0:
     resolution: {integrity: sha512-JAFHSqvJo8tIWsn0L49Oz3dCRA3q7/wa8YTc/ltEbs3kDNEjvHhb12bQEOfoGuD3K5ZWH4nqo5quB9YVTd8Now==}
     peerDependencies:
       '@xstate/fsm': ^1.6.4
@@ -1877,7 +1877,7 @@ packages:
         optional: true
     dependencies:
       vue: 3.2.31
-      xstate: 4.29.0
+      xstate: 4.30.0
     dev: false
 
   /abab/2.0.5:
@@ -2124,7 +2124,7 @@ packages:
     engines: {node: ^6 || ^7 || ^8 || ^9 || ^10 || ^11 || ^12 || >=13.7}
     hasBin: true
     dependencies:
-      caniuse-lite: 1.0.30001311
+      caniuse-lite: 1.0.30001312
       electron-to-chromium: 1.4.68
       escalade: 3.1.1
       node-releases: 2.0.2
@@ -2165,8 +2165,8 @@ packages:
       upper-case: 1.1.3
     dev: true
 
-  /caniuse-lite/1.0.30001311:
-    resolution: {integrity: sha512-mleTFtFKfykEeW34EyfhGIFjGCqzhh38Y0LhdQ9aWF+HorZTtdgKV/1hEE0NlFkG2ubvisPV6l400tlbPys98A==}
+  /caniuse-lite/1.0.30001312:
+    resolution: {integrity: sha512-Wiz1Psk2MEK0pX3rUzWaunLTZzqS2JYZFzNKqAiJGiuxIjRPLgV6+VDPOg6lQOUxmDwhTlh198JsTTi8Hzw6aQ==}
     dev: true
 
   /chalk/2.4.2:
@@ -2866,7 +2866,7 @@ packages:
       has: 1.0.3
       is-core-module: 2.8.1
       is-glob: 4.0.3
-      minimatch: 3.0.5
+      minimatch: 3.1.1
       object.values: 1.1.5
       resolve: 1.22.0
       tsconfig-paths: 3.12.0
@@ -2882,7 +2882,7 @@ packages:
       eslint-plugin-es: 3.0.1_eslint@7.32.0
       eslint-utils: 2.1.0
       ignore: 5.2.0
-      minimatch: 3.0.5
+      minimatch: 3.1.1
       resolve: 1.22.0
       semver: 6.3.0
     dev: true
@@ -2904,7 +2904,7 @@ packages:
       eslint: 7.32.0
       estraverse: 5.3.0
       jsx-ast-utils: 3.2.1
-      minimatch: 3.0.5
+      minimatch: 3.1.1
       object.entries: 1.1.5
       object.fromentries: 2.0.5
       object.hasown: 1.1.0
@@ -3046,7 +3046,7 @@ packages:
       json-stable-stringify-without-jsonify: 1.0.1
       levn: 0.4.1
       lodash.merge: 4.6.2
-      minimatch: 3.0.5
+      minimatch: 3.1.1
       natural-compare: 1.4.0
       optionator: 0.9.1
       progress: 2.0.3
@@ -3182,7 +3182,7 @@ packages:
   /filelist/1.0.2:
     resolution: {integrity: sha512-z7O0IS8Plc39rTCq6i6iHxk43duYOn8uFJiWSewIq0Bww1RNybVHSCjahmcC87ZqAm4OTvFzlzeGu3XAzG1ctQ==}
     dependencies:
-      minimatch: 3.0.5
+      minimatch: 3.1.1
     dev: true
 
   /fill-range/7.0.1:
@@ -3341,7 +3341,7 @@ packages:
       fs.realpath: 1.0.0
       inflight: 1.0.6
       inherits: 2.0.4
-      minimatch: 3.0.5
+      minimatch: 3.1.1
       once: 1.4.0
       path-is-absolute: 1.0.1
     dev: true
@@ -3737,7 +3737,7 @@ packages:
       async: 0.9.2
       chalk: 2.4.2
       filelist: 1.0.2
-      minimatch: 3.0.5
+      minimatch: 3.1.1
     dev: true
 
   /jest-worker/26.6.2:
@@ -4061,8 +4061,8 @@ packages:
     engines: {node: '>=6'}
     dev: true
 
-  /minimatch/3.0.5:
-    resolution: {integrity: sha512-tUpxzX0VAzJHjLu0xUfFv1gwVp9ba3IOuRAVH2EGuRW8a5emA2FlACLqiT/lDVtS1W+TGNwqz3sWaNyLgDJWuw==}
+  /minimatch/3.1.1:
+    resolution: {integrity: sha512-reLxBcKUPNBnc/sVtAbxgRVFSegoGeLaSjmphNhcwcolhYLRgtJscn5mRl6YRZNQv40Y7P6JM2YhSIsbL9OB5A==}
     dependencies:
       brace-expansion: 1.1.11
     dev: true
@@ -5152,7 +5152,7 @@ packages:
       fast-glob: 3.2.11
       local-pkg: 0.1.0
       magic-string: 0.25.7
-      minimatch: 3.0.5
+      minimatch: 3.1.1
       resolve: 1.22.0
       unplugin: 0.2.21_vite@2.8.1
       vue: 3.2.31
@@ -5722,8 +5722,8 @@ packages:
     resolution: {integrity: sha512-JZnDKK8B0RCDw84FNdDAIpZK+JuJw+s7Lz8nksI7SIuU3UXJJslUthsi+uWBUYOwPFwW7W7PRLRfUKpxjtjFCw==}
     dev: true
 
-  /xstate/4.29.0:
-    resolution: {integrity: sha512-F6WF5s6xG/bm8Oxi2ETuzwGQW8yleL5I4JPxZl49m7Uw7D4LAXu+4dvUK78Uo4D863sM8auqw6+1Xmj9mFlmDQ==}
+  /xstate/4.30.0:
+    resolution: {integrity: sha512-haGWpXLfsIHPrOMXs5NFuAIvIgaiEBU9pnlXllIxJ0iwwLySXYYLsRY8GXb/zKW+LNoMtTjMXx1lAav/tI7eFQ==}
     dev: false
 
   /y18n/5.0.8:
