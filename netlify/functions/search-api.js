@@ -1,5 +1,6 @@
 /* eslint-disable @typescript-eslint/no-var-requires */
 import { URL } from 'url';
+import fetch from 'node-fetch';
 import urlcatM from "urlcat";
 const urlcat = urlcatM.default;
 
