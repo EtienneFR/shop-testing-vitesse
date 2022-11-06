@@ -4,7 +4,7 @@ import fetch from 'node-fetch';
 import urlcatM from "urlcat";
 const urlcat = urlcatM.default;
 
-const handler = async (event, context) => {
+exports.handler = async (event, context) => {
   const query = event.queryStringParameters.query
   const API_URL = 'https://neutrinoapi.net/'
   const requestUrl = urlcat(API_URL, 'bad-word-filter', { content: query })
@@ -39,4 +39,3 @@ const handler = async (event, context) => {
   }
 };
 
-export { handler };
