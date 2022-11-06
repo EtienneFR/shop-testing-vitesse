@@ -3,13 +3,9 @@ import { defineConfig } from 'vite'
 import Vue from '@vitejs/plugin-vue'
 import Pages from 'vite-plugin-pages'
 import Layouts from 'vite-plugin-vue-layouts'
-import Icons from 'unplugin-icons/vite'
-import IconsResolver from 'unplugin-icons/resolver'
 import Components from 'unplugin-vue-components/vite'
-import Markdown from 'vite-plugin-md'
-import WindiCSS from 'vite-plugin-windicss'
+import Unocss from 'unocss/vite'
 import { VitePWA } from 'vite-plugin-pwa'
-import Prism from 'markdown-it-prism'
 
 export default defineConfig({
   resolve: {
@@ -20,6 +16,7 @@ export default defineConfig({
   plugins: [
     Vue({
       include: [/\.vue$/, /\.md$/],
+      reactivityTransform: true,
     }),
 
     // https://github.com/hannoeru/vite-plugin-pages
@@ -30,38 +27,15 @@ export default defineConfig({
     // https://github.com/JohnCampionJr/vite-plugin-vue-layouts
     Layouts(),
 
-    // https://github.com/antfu/vite-plugin-md
-    Markdown({
-      wrapperClasses: 'prose prose-sm m-auto text-left',
-      headEnabled: true,
-      markdownItSetup(md) {
-        // https://prismjs.com/
-        md.use(Prism)
-      },
-    }),
-
     Components({
       // allow auto load markdown components under `./src/components/`
       extensions: ['vue', 'md'],
-
-      // auto import icons
-      resolvers: [
-        IconsResolver({
-          componentPrefix: '',
-          // enabledCollections: ['carbon']
-        }),
-      ],
-
       include: [/\.vue$/, /\.vue\?vue/, /\.md$/],
+      dts: 'src/components.d.ts',
     }),
-
-    // https://github.com/antfu/vite-plugin-icons
-    Icons(),
 
     // https://github.com/antfu/vite-plugin-windicss
-    WindiCSS({
-      safelist: 'prose prose-sm m-auto',
-    }),
+    Unocss(),
 
     // https://github.com/antfu/vite-plugin-pwa
     VitePWA({

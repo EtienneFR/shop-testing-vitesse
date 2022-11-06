@@ -1,8 +1,10 @@
-import 'windi.css'
 import { ViteSSG } from 'vite-ssg'
-import generatedRoutes from 'pages-generated'
-import { setupLayouts } from 'layouts-generated'
+import { setupLayouts } from 'virtual:generated-layouts'
+import generatedRoutes from '~pages'
 import App from './App.vue'
+
+import '@unocss/reset/tailwind.css'
+import 'uno.css'
 
 const routes = setupLayouts(generatedRoutes)
 

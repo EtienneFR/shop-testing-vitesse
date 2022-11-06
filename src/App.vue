@@ -2,17 +2,7 @@
   <TheNavbar />
   <div class="w-full h-full">
     <router-view v-slot="{ Component }">
-      <transition
-        enter-active-class="transition duration-200 ease-out transform"
-        enter-from-class="scale-95 opacity-0"
-        enter-to-class="scale-100 opacity-100"
-        leave-active-class="transition duration-75 ease-in transform"
-        leave-from-class="scale-100 opacity-100"
-        leave-to-class="scale-95 opacity-0"
-        mode="out-in"
-      >
-        <component :is="Component" />
-      </transition>
+      <component :is="Component" />
     </router-view>
   </div>
 </template>
