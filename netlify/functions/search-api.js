@@ -1,6 +1,6 @@
 /* eslint-disable @typescript-eslint/no-var-requires */
-const { URL } = require('url')
-const urlcat = require('urlcat').default
+import { URL } from 'url';
+import urlcat from 'urlcat';
 
 const handler = async(event, context) => {
   const query = event.queryStringParameters.query
