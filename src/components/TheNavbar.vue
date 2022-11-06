@@ -1,5 +1,5 @@
 <template>
-  <nav class="bg-blue-700">
+  <nav class="bg-blue-700" ref="root">
     <div class="sm:px-6 lg:px-8">
       <div class="relative flex items-center justify-between h-16">
         <div class="flex items-center flex-1 sm:items-stretch sm:justify-start">
@@ -257,107 +257,93 @@
   </nav>
 </template>
 
-<script lang="ts">
-import { defineComponent, onMounted } from 'vue'
+<script lang="ts" setup>
+import { onMounted, onBeforeMount, ref, watch, computed } from 'vue'
 import netlifyAuth from '../netlifyAuth'
 import { useState } from '../composable/state'
+import { useRoute } from 'vue-router'
 
-export default defineComponent({
-  setup() {
-    const [loggedIn, setLoggedIn] = useState(netlifyAuth.isAuthenticated)
-    const [user, setUser] = useState(null)
+const [loggedIn, setLoggedIn] = useState(netlifyAuth.isAuthenticated)
+const [_user, setUser] = useState(null)
 
-    const init = () => {
-      netlifyAuth.initialize((user) => {
-        setLoggedIn(!!user)
-      })
-    }
+const init = () => {
+  netlifyAuth.initialize((user: any) => {
+    setLoggedIn(!!user)
+  })
+}
 
-    const login = () => {
-      netlifyAuth.authenticate((user) => {
-        setLoggedIn(!!user)
-        setUser(user)
-      })
-    }
-    const logout = () => {
-      netlifyAuth.signout(() => {
-        setLoggedIn(false)
-        setUser(null)
-      })
-    }
+const login = () => {
+  netlifyAuth.authenticate((user: any) => {
+    setLoggedIn(!!user)
+    setUser(user)
+  })
+}
+const logout = () => {
+  netlifyAuth.signout(() => {
+    setLoggedIn(false)
+    setUser(null)
+  })
+}
 
-    onMounted(() => {
-      init()
-    })
-
-    return {
-      loggedIn,
-      setLoggedIn,
-      user,
-      setUser,
-      init,
-      login,
-      logout,
-    }
-  },
-  data() {
-    const [user, setUser] = useState(null)
-    return {
-      isOpen: false,
-      isNotif: false,
-      isOpenMenu: false,
-      links: [
-        {
-          id: 1,
-          to: 'dashboard',
-          text: 'Personal Space',
-          logged: true,
-          unLogged: false,
-        },
-        {
-          id: 2,
-          to: 'products',
-          text: 'Products',
-          logged: true,
-          unLogged: true,
-        },
-      ],
-    }
-  },
-  computed: {
-    loggedLinks() {
-      return this.links.filter((u) => {
-        return u.logged
-      })
-    },
-    unLoggedLinks() {
-      return this.links.filter((u) => {
-        return u.unLogged
-      })
-    },
-  },
-  watch: {
-    $route(to, from, e) {
-      this.close(e)
-    },
-  },
-  mounted() {
-    document.addEventListener('click', this.close)
-  },
-  beforeUnmount() {
-    document.removeEventListener('click', this.close)
-  },
-  methods: {
-    close(e: any) {
-      const popup = this.$refs.popup as HTMLElement
-      const mobileMenu = this.$refs.userMenu as HTMLElement
-      if (!popup.contains(e.target)) {
-        this.isOpen = false
-        this.isNotif = false
-        if (!mobileMenu.contains(e.target) && !this.$el.contains(e.target))
-          this.isOpenMenu = false
-      }
-    },
-  },
+onMounted(() => {
+  init();
+  document.addEventListener('click', close)
 })
+
+onBeforeMount(() => {
+  document.removeEventListener('click', close)
+})
+
+const isOpen = ref(false);
+const isNotif = ref(false);
+const isOpenMenu = ref(false);
+const links = ref([
+  {
+    id: 1,
+    to: 'dashboard',
+    text: 'Personal Space',
+    logged: true,
+    unLogged: false,
+  },
+  {
+    id: 2,
+    to: 'products',
+    text: 'Products',
+    logged: true,
+    unLogged: true,
+  },
+]);
+
+const loggedLinks = computed(() => {
+  return links.value.filter((u) => {
+    return u.logged
+  })
+}) ;
+
+const unLoggedLinks = computed(() => {
+  return links.value.filter((u) => {
+    return u.unLogged
+  })
+});
+
+const route = useRoute();
+
+watch(() => route.name, (e) => {
+  close(e)
+});
+
+const userMenu = ref<HTMLDivElement>();
+const popup = ref<HTMLDivElement>();
+const root = ref<HTMLDivElement>();
+
+const close = (e: any) => {
+  const popupMenu = popup.value
+  const mobileMenu = userMenu.value
+  if (!popupMenu?.contains(e.target)) {
+    isOpen.value = false
+    isNotif.value = false
+    if (!mobileMenu?.contains(e.target) && ! root?.value?.contains(e.target))
+      isOpenMenu.value = false
+  }
+}
 </script>

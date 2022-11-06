@@ -19,6 +19,8 @@ const searchModel = createModel({
 })
 
 export const searchMachine = searchModel.createMachine({
+  predictableActionArguments: true,
+
   tsTypes: {} as import('./searchMachine.typegen').Typegen0,
 
   id: 'search',

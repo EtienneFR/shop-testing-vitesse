@@ -94,31 +94,24 @@
   </div>
 </template>
 
-<script lang="ts">
-import { defineComponent } from 'vue'
-
-export default defineComponent({
-  data() {
-    return {
-      orders: [
-        {
-          id: '49279287',
-          title: 'posters_xl',
-        },
-        {
-          id: '79131873',
-          title: 'laptop',
-        },
-        {
-          id: '827492847',
-          title: 'carpet',
-        },
-        {
-          id: '29624628',
-          title: 'smartphone_64GB',
-        },
-      ],
-    }
-  },
-})
+<script lang="ts" setup>
+import { ref } from 'vue'
+const orders = ref([
+{
+  id: '49279287',
+  title: 'posters_xl',
+},
+{
+  id: '79131873',
+  title: 'laptop',
+},
+{
+  id: '827492847',
+  title: 'carpet',
+},
+{
+  id: '29624628',
+  title: 'smartphone_64GB',
+}
+])
 </script>

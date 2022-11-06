@@ -1,36 +1,33 @@
 <template>
   <svg
-    :width="width"
-    :height="height"
-    :viewBox="viewBox"
-    :fill="fill"
+    :width="props.width"
+    :height="props.height"
+    :viewBox="props.viewBox"
+    :fill="props.fill"
     xmlns="http://www.w3.org/2000/svg"
   >
     <slot />
   </svg>
 </template>
 
-<script lang="ts">
-import { defineComponent } from 'vue'
+<script lang="ts" setup>
 
-export default defineComponent({
-  props: {
-    width: {
-      type: [Number, String],
-      default: 24,
-    },
-    height: {
-      type: [Number, String],
-      default: 24,
-    },
-    viewBox: {
-      type: String,
-      default: '0 0 24 24',
-    },
-    fill: {
-      type: String,
-      default: 'none',
-    },
+const props = defineProps({
+  width: {
+    type: [Number, String],
+    default: 24,
+  },
+  height: {
+    type: [Number, String],
+    default: 24,
+  },
+  viewBox: {
+    type: String,
+    default: '0 0 24 24',
+  },
+  fill: {
+    type: String,
+    default: 'none',
   },
 })
 </script>
