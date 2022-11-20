@@ -40,6 +40,6 @@
         "vite-plugin-pwa": "^0.13.3",
         "vite-plugin-vue-component-preview": "^0.3.3",
         "vite-plugin-vue-layouts": "^0.7.0",
-        "vite-ssg": "^0.21.2"
+        "vite-ssg": "^0.22.0"
     }
 }

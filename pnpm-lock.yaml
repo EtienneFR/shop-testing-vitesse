@@ -28,7 +28,7 @@ specifiers:
   vite-plugin-pwa: ^0.13.3
   vite-plugin-vue-component-preview: ^0.3.3
   vite-plugin-vue-layouts: ^0.7.0
-  vite-ssg: ^0.21.2
+  vite-ssg: ^0.22.0
   vue: ^3.2.45
   vue-router: ^4.1.6
   xstate: ^4.34.0
@@ -66,7 +66,7 @@ devDependencies:
   vite-plugin-pwa: 0.13.3_vite@3.2.4
   vite-plugin-vue-component-preview: 0.3.3_vite@3.2.4
   vite-plugin-vue-layouts: 0.7.0_ltio2jrs4h243s6indlqgywoku
-  vite-ssg: 0.21.2_2zn3fgarbjdlbpou4fghfpvs7q
+  vite-ssg: 0.22.0_2zn3fgarbjdlbpou4fghfpvs7q
 
 packages:
 
@@ -4200,8 +4200,8 @@ packages:
       argparse: 2.0.1
     dev: true
 
-  /jsdom/20.0.2:
-    resolution: {integrity: sha512-AHWa+QO/cgRg4N+DsmHg1Y7xnz+8KU3EflM0LVDTdmrYOc1WWTSkOjtpUveQH+1Bqd5rtcVnb/DuxV/UjDO4rA==}
+  /jsdom/20.0.3:
+    resolution: {integrity: sha512-SYhBvTh89tTfCD/CRdSOm13mOBa42iTaTyfyEWBdKcGdPxPtLFBXuHR8XHb33YNYaP+lLbmSvBTsnoesCNJEsQ==}
     engines: {node: '>=14'}
     peerDependencies:
       canvas: ^2.5.0
@@ -4228,7 +4228,7 @@ packages:
       saxes: 6.0.0
       symbol-tree: 3.2.4
       tough-cookie: 4.1.2
-      w3c-xmlserializer: 3.0.0
+      w3c-xmlserializer: 4.0.0
       webidl-conversions: 7.0.0
       whatwg-encoding: 2.0.0
       whatwg-mimetype: 3.0.0
@@ -5803,12 +5803,12 @@ packages:
       vite: 3.2.4
     dev: true
 
-  /vite-ssg/0.21.2_2zn3fgarbjdlbpou4fghfpvs7q:
-    resolution: {integrity: sha512-srcxakrqBaubPr6KuhMmkmrdm1Ye1zIClWOpV3TSk4viyy0QymZWwfPAPXjCwjzmPDY/QVHTffuMTNjoM4xkbA==}
+  /vite-ssg/0.22.0_2zn3fgarbjdlbpou4fghfpvs7q:
+    resolution: {integrity: sha512-GW8hARA4lT4fEAfxfnSEplV5JKQEM15yTVI8SZefYW69xfBVfujZrlqKqory+kHi7rgm7ZEhH8Uv82pdWETiSQ==}
     engines: {node: '>=14.0.0'}
     hasBin: true
     peerDependencies:
-      '@vueuse/head': ^0.5.0 || ^0.6.0 || ^0.7.0 || ^0.8.0 || ^0.9.0
+      '@vueuse/head': ^1.0.0
       critters: ^0.0.16
       vite: ^2.0.0 || ^3.0.0-0
       vue: ^3.2.10
@@ -5819,11 +5819,12 @@ packages:
       vue-router:
         optional: true
     dependencies:
+      '@unhead/dom': 1.0.2
       '@vueuse/head': 1.0.16_vue@3.2.45
       fs-extra: 10.1.0
       html-minifier: 4.0.0
       html5parser: 2.0.2
-      jsdom: 20.0.2
+      jsdom: 20.0.3
       kolorist: 1.6.0
       prettier: 2.7.1
       vite: 3.2.4
@@ -5919,9 +5920,9 @@ packages:
       '@vue/server-renderer': 3.2.45_vue@3.2.45
       '@vue/shared': 3.2.45
 
-  /w3c-xmlserializer/3.0.0:
-    resolution: {integrity: sha512-3WFqGEgSXIyGhOmAFtlicJNMjEps8b1MG31NCA0/vOF9+nKMUW1ckhi9cnNHmf88Rzw5V+dwIwsm2C7X8k9aQg==}
-    engines: {node: '>=12'}
+  /w3c-xmlserializer/4.0.0:
+    resolution: {integrity: sha512-d+BFHzbiCx6zGfz0HyQ6Rg69w9k19nviJspaj4yNscGjrHu94sVP+aRm75yEbCh+r2/yR+7q6hux9LVtbuTGBw==}
+    engines: {node: '>=14'}
     dependencies:
       xml-name-validator: 4.0.0
     dev: true
