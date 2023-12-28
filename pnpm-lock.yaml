@@ -15,8 +15,8 @@ dependencies:
     specifier: ^2.0.0
     version: 2.0.0(vue@3.3.13)
   '@xstate/vue':
-    specifier: ^2.0.0
-    version: 2.0.0(vue@3.3.13)(xstate@4.38.3)
+    specifier: ^3.0.3
+    version: 3.0.3(vue@3.3.13)(xstate@5.4.1)
   axios:
     specifier: ^1.6.3
     version: 1.6.3
@@ -36,8 +36,8 @@ dependencies:
     specifier: ^4.2.5
     version: 4.2.5(vue@3.3.13)
   xstate:
-    specifier: ^4.34.0
-    version: 4.38.3
+    specifier: ^5.4.1
+    version: 5.4.1
 
 devDependencies:
   '@antfu/eslint-config':
@@ -2631,20 +2631,17 @@ packages:
       - '@vue/composition-api'
       - vue
 
-  /@xstate/vue@2.0.0(vue@3.3.13)(xstate@4.38.3):
-    resolution: {integrity: sha512-JlrJ3d+I6rZCcFBuu3O4GP+mGJfd11O9o69wRedzPMqZ+hxcMRBsih9L5kKnJHcU9CTmdJTT172oxTaYF7thzA==}
+  /@xstate/vue@3.0.3(vue@3.3.13)(xstate@5.4.1):
+    resolution: {integrity: sha512-K5MNRc0h88HSTvLmY/PsWTqD3ttgDlS2zdC4D7ici/+yyHD1M/R/FrTnCiv9PYn823bIJr7KCyD+qgaKKGPoLw==}
     peerDependencies:
-      '@xstate/fsm': ^2.0.0
       vue: ^3.0.0
-      xstate: ^4.31.0
+      xstate: ^5.4.1
     peerDependenciesMeta:
-      '@xstate/fsm':
-        optional: true
       xstate:
         optional: true
     dependencies:
       vue: 3.3.13(typescript@5.3.3)
-      xstate: 4.38.3
+      xstate: 5.4.1
     dev: false
 
   /acorn-jsx@5.3.2(acorn@8.11.2):
@@ -6647,8 +6644,8 @@ packages:
     resolution: {integrity: sha512-JZnDKK8B0RCDw84FNdDAIpZK+JuJw+s7Lz8nksI7SIuU3UXJJslUthsi+uWBUYOwPFwW7W7PRLRfUKpxjtjFCw==}
     dev: true
 
-  /xstate@4.38.3:
-    resolution: {integrity: sha512-SH7nAaaPQx57dx6qvfcIgqKRXIh4L0A1iYEqim4s1u7c9VoCgzZc+63FY90AKU4ZzOC2cfJzTnpO4zK7fCUzzw==}
+  /xstate@5.4.1:
+    resolution: {integrity: sha512-1DDT047hsTCSgm3BwLyb4sXQDmTdbLutc4ni0MLACgd2yX6vij35pnNNf1F4U6kQ8njx6NxQ6wpLjlh1lqs0NQ==}
     dev: false
 
   /y18n@5.0.8:
