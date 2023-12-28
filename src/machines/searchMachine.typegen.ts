@@ -13,7 +13,7 @@
           "fetchImages": "done.invoke.getImage";
         };
         missingImplementations: {
-          actions: never;
+          actions: "assignEmptySearchQuery" | "assignImages" | "assignSearchQuery";
           delays: never;
           guards: never;
           services: "fetchImages";
@@ -27,7 +27,7 @@
           
         };
         eventsCausingGuards: {
-          "isSearchQueryEmpty": "MODIFY_QUERY";
+          
         };
         eventsCausingServices: {
           "fetchImages": "xstate.after(500)#search.debouncing";

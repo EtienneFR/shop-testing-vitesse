@@ -24,23 +24,23 @@
   </div>
 
   <div class="flex items-center justify-center p-4">
-    <section v-if="state.matches('waiting')">
+    <section v-if="snapshot.matches('waiting')">
       <p>Type query to search products!</p>
     </section>
 
-    <section v-else-if="state.matches('erroredData')">
+    <section v-else-if="snapshot.matches('erroredData')">
       <p>We are sorry. We are unable to retrieve this information at this time. Please retry later.</p>
     </section>
 
-    <section v-else-if="state.matches('fetchingData') || state.matches('debouncing')">
+    <section v-else-if="snapshot.matches('fetchingData') || state.matches('debouncing')">
       <p>Waiting...</p>
     </section>
 
-    <section v-else-if="(state.matches('fetchedData') && images.length === 0)">
+    <section v-else-if="(snapshot.matches('fetchedData') && images.length === 0)">
       No result found. Type a different query.
     </section>
 
-    <section v-else-if="state.matches('fetchedData')">
+    <section v-else-if="snapshot.matches('fetchedData')">
       <div class="flex flex-wrap justify-center">
         <div v-for="product in images" :key="product.description" class="w-auto px-1 m-5 my-1 lg:w-1/3 lg:w-auto md:w-auto lg:my-4 lg:px-4">
           <div class="overflow-hidden rounded-lg shadow-lg">
@@ -63,7 +63,7 @@ import urlcat from 'urlcat'
 import { useMachine } from '@xstate/vue'
 import { searchMachine, Image } from '../machines/searchMachine'
 
-const { state, send } = useMachine(searchMachine, {
+const { snapshot, send } = useMachine(searchMachine, {
   services: {
     fetchImages: ({ searchQuery }) => async(sendBack) => {
       try {
@@ -87,6 +87,6 @@ const { state, send } = useMachine(searchMachine, {
   },
 })
 
-const searchQuery = computed(() => state.value.context.searchQuery)
-const images = computed(() => state.value.context.images)
+const searchQuery = computed(() => snapshot.value.context.searchQuery)
+const images = computed(() => snapshot.value.context.images)
 </script>
